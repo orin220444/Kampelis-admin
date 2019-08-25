@@ -1,0 +1,22 @@
+{
+  "name": "adminchatbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/orin220444/adminchatbot.git"
+  },
+  "author": "Orin220444",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/orin220444/adminchatbot/issues"
+  },
+  "homepage": "https://gitlab.com/orin220444/adminchatbot#readme",
+  "dependencies": {
+    "telegraf": "^3.32.0"
+  }
+}
