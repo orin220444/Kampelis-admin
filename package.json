@@ -1,0 +1,26 @@
+{
+  "name": "adminchatbot",
+  "version": "0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "debug": "nodemon index.js",
+    "bot": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/orin220444/adminchatbot.git"
+  },
+  "author": "Orin220444",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/orin220444/adminchatbot/issues"
+  },
+  "homepage": "https://gitlab.com/orin220444/adminchatbot#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "nodemon": "^1.19.4",
+    "path": "^0.12.7",
+    "telegraf": "^3.33.3"
+  }
+}
