@@ -11,16 +11,21 @@ ctx.reply(`Приветствую тебя, ${ctx.message.from.first_name} в ч
   bot.command('ban', (async(ctx) =>  {
     const chatMember = await ctx.telegram.getChatMember(ctx.message.chat.id, ctx.message.from.id)
     if (chatMember && ['creator', 'administrator'].includes(chatMember.status)) {
-    
       const banuser = await ctx.message.reply_to_message.from.id
-      await ctx.telegram.restrictChatMember(ctx.chat.id, banuser)
-      ctx.reply(ctx.chat.id, `Пользователь ${ctx.reply.from.id} забанен!`)
-}else{
-      ctx.reply(`Эта команда доступна только администраторам!`)
-    }
+    }if(banuser == 'creator' || 'adminstator'){
+      ctx.reply('Забанить администратора невозможно!')
+    }if (chatMember == 'creator' || 'administrator'){
+    ctx.reply(`Эта команда доступна только администраторам!`)
+  }else{
+
+  await ctx.telegram.restrictChatMember(ctx.chat.id, banuser)
+  ctx.reply(ctx.chat.id, `Пользователь ${ctx.reply.from.id} забанен!`)
+}
+
+    
 }))
       
-bot.command('unmute', (async(ctx) => {
+bot.command('unban', (async(ctx) => {
   const chatMember = await ctx.telegram.getChatMember(ctx.message.chat.id, ctx.message.from.id)
     if (chatMember && ['creator', 'administrator'].includes(chatMember.status)) {
     
