@@ -22,8 +22,7 @@
     "path": "^0.12.7",
     "telegraf": "^3.33.3"
   },
-"devdependencies": {
-"nodemon": "^1.19.4"
-}
-
+  "devdependencies": {
+    "nodemon": "^1.19.4"
+  }
 }
