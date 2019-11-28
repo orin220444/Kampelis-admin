@@ -1,7 +1,7 @@
 {
   "name": "adminchatbot",
   "version": "0.1",
-  "description": "",
+  "description": "Bot for administering chats",
   "main": "index.js",
   "scripts": {
     "debug": "nodemon index.js",
@@ -19,8 +19,10 @@
   "homepage": "https://gitlab.com/orin220444/adminchatbot#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "nodemon": "^1.19.4",
     "path": "^0.12.7",
     "telegraf": "^3.33.3"
+  },
+  "devdependencies": {
+    "nodemon": "^1.19.4"
   }
 }
