@@ -37,7 +37,7 @@ bot.command('unban', (async(ctx) => {
         can_send_other_messages: true,
         can_send_media_messages: true,
         can_add_web_page_previews: true,
-                                            })
+        })
 ctx.reply(ctx.chat.id, `Пользователь ${ctx.reply.from.id} разбанен!`)
 }else{
   ctx.reply(ctx.from.id, `Вы не администратор!`)
@@ -45,14 +45,20 @@ ctx.reply(ctx.chat.id, `Пользователь ${ctx.reply.from.id} разба
 }))
   bot.command('kick', (async(ctx) => {
   const chatMember = await ctx.telegram.getChatMember(ctx.message.chat.id, ctx.message.from.id)
-    if (chatMember && ['creator', 'administrator'].includes(chatMember.status)) {
+  const kickuser = await ctx.message.reply_to_message.from.id  
+  if (chatMember && ['creator', 'administrator'].includes(chatMember.status)) {
     console.log(ctx.message.reply_to_message.from)
-      const kickuser = await ctx.message.reply_to_message.from.id
+  }
      
+      if(kickuser == 'creator' || 'adminstator'){
+        ctx.reply('Забанить администратора невозможно!')
+      }if (chatMember == 'creator' || 'administrator'){
+      ctx.reply(`Эта команда доступна только администраторам!`)
+  
+}else{
   await ctx.telegram.kickChatMember(ctx.chat.id, kickuser)
 ctx.reply(ctx.from.id, `Пользователь ${ctx.reply.from.id} кикнут!`)
-}else{
-  ctx.reply(ctx.from.id, `Вы не администратор!`)
+
 }
   }))
    
