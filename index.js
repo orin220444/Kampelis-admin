@@ -1,12 +1,12 @@
-const Telegraf = require('telegraf');
+const Telegraf = require('telegraf' );
 require('dotenv').config({ path: './.env'})
 const bot = new Telegraf(process.env.BOT_TOKEN)
 
 const path = require('path')
 bot.on('new_chat_members', (ctx) => {
   console.log(ctx.message)
-ctx.reply(`Приветствую тебя, ${ctx.message.from.first_name} в чате: ${ctx.chat.title}`)
-} ) 
+  ctx.reply(`Приветствую тебя, ${ctx.message.from.first_name} в чате: ${ctx.chat.title}`)
+  }) 
   
   bot.command('ban', (async(ctx) =>  {
     const chatMember = await ctx.telegram.getChatMember(ctx.message.chat.id, ctx.message.from.id)
@@ -50,23 +50,22 @@ ctx.reply(ctx.chat.id, `Пользователь ${ctx.reply.from.id} разба
     console.log(ctx.message.reply_to_message.from)
   }
      
-      if(kickuser == 'creator' || 'adminstator'){
-        ctx.reply('Забанить администратора невозможно!')
-      }if (chatMember == 'creator' || 'administrator'){
-      ctx.reply(`Эта команда доступна только администраторам!`)
+  if(kickuser == 'creator' || 'adminstator'){
+    ctx.reply('Забанить администратора невозможно!')
+  }if (chatMember == 'creator' || 'administrator'){
+    ctx.reply(`Эта команда доступна только администраторам!`)
   
 }else{
   await ctx.telegram.kickChatMember(ctx.chat.id, kickuser)
-ctx.reply(ctx.from.id, `Пользователь ${ctx.reply.from.id} кикнут!`)
-
-}
+  ctx.reply(ctx.from.id, `Пользователь ${ctx.reply.from.id} кикнут!`)
+  }
   }))
    
-  
-    
+
+
 bot.catch((error) => {
-    console.log('Oops', error)
+  console.log('Oops', error)
   })
 bot.launch().then(() => {
-console.log(`bot started`)
-})
+  console.log(`bot started`)
+  })
