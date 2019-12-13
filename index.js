@@ -2,11 +2,18 @@
 const Telegraf = require('telegraf' );
 require('dotenv').config({path: './.env'});
 const bot = new Telegraf(process.env.BOT_TOKEN);
-
+const {
+  newChatMembers,
+  banUserIsAnAdmin,
+  chatMemberIsNotAnAdmin,
+  userBanned,
+  userKicked,
+  userUnBanned
+} = ('./reply.js');
 
 bot.on('new_chat_members', (ctx) => {
   console.log(ctx.message);
-  const answer = `Приветствую тебя, ${ctx.message.from.first_name} в чате: ${ctx.chat.title}`;
+  const answer = newChatMembers;
   ctx.reply(answer);
 });
 
@@ -16,9 +23,9 @@ bot.command('ban', (async (ctx) => {
   const ischatMemberAnAdmin = await chatMember === 'creator' || 'administrator';
   const isbanUserAnAdmin = await banUser === 'creator' || 'administrator';
   if (isbanUserAnAdmin == true) {
-    ctx.reply('администратора невозможно заблокировать!');
+    ctx.reply(banUserIsAnAdmin);
   } if (ischatMemberAnAdmin == false) {
-    ctx.reply('вы не администратор!');
+    ctx.reply(chatMemberIsNotAnAdmin);
   } else {
     await ctx.telegram.restrictChatMember(ctx.chat.id, banUser);
   }
@@ -29,9 +36,9 @@ bot.command('unban', (async (ctx) => {
   const ischatMemberAnAdmin = await chatMember === 'creator' || 'administrator';
   const isbanUserAnAdmin = await unBanUser === 'creator' || 'administrator';
   if (isbanUserAnAdmin == true) {
-    ctx.reply('кхмм, разблокировать администратора? интересно...');
+    ctx.reply(banUserIsAnAdmin);
   } if (ischatMemberAnAdmin == false) {
-    ctx.reply('вы не администратор!');
+    ctx.reply(chatMemberIsNotAnAdmin);
   } else {
     await ctx.telegram.restrictChatMember(ctx.chat.id, unBanUser, {
       can_send_messages: true,
@@ -51,7 +58,7 @@ bot.command('kick', (async (ctx) => {
   } if (ischatMemberAnAdmin == false) {
     ctx.reply('вы не администратор!');
   } else {
-    await ctx.telegram.kickChatMember(ctx.chat.id, kickUser)
+    await ctx.telegram.kickChatMember(ctx.chat.id, kickUser);
   }
 }));
 
