@@ -9,6 +9,7 @@ const {
   userBanned,
   userKicked,
   userUnBanned,
+  help,
 } = ('./locales/ru.js');
 
 bot.on('new_chat_members', (ctx) => {
@@ -64,7 +65,9 @@ bot.command('kick', (async (ctx) => {
     await ctx.reply('kicked!');
   }
 }));
-
+bot.command('help', (ctx) => {
+  ctx.reply(help);
+});
 
 bot.catch((error) => {
   console.log('Oops', error);

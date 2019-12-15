@@ -5,6 +5,7 @@ const chatMemberIsNotAnAdmin = 'Вы не администратор!';
 const userBanned = `Пользователь ${ctx.reply.from.id} забанен!`;
 const userUnBanned = `Пользователь ${ctx.reply.from.id} разбанен!`;
 const userKicked = `Пользователь ${ctx.reply.from.id} кикнут!`;
+const help = ``;
 module.exports = {
   newChatMembers,
   banUserIsAnAdmin,
@@ -12,4 +13,5 @@ module.exports = {
   userBanned,
   userKicked,
   userUnBanned,
+  help,
 };
