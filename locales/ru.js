@@ -5,7 +5,9 @@ const chatMemberIsNotAnAdmin = 'Вы не администратор!';
 const userBanned = `Пользователь ${ctx.reply.from.id} забанен!`;
 const userUnBanned = `Пользователь ${ctx.reply.from.id} разбанен!`;
 const userKicked = `Пользователь ${ctx.reply.from.id} кикнут!`;
-const help = ``;
+const help = `введите ```/ban``` чтобы забаните пользователя,
+```/unban``` чтобы разбанить
+и ```/kick``` чтобы кикнуть без возможности возвращения`;
 module.exports = {
   newChatMembers,
   banUserIsAnAdmin,
