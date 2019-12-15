@@ -19,8 +19,8 @@
   "homepage": "https://gitlab.com/orin220444/adminchatbot#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "nodemon": "^1.19.4",
+    "nodemon": "^2.0.2",
     "path": "^0.12.7",
-    "telegraf": "^3.33.3"
+    "telegraf": "^3.34.1"
   }
 }
