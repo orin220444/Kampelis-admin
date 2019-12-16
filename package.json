@@ -4,8 +4,8 @@
   "description": "Bot for administering chats on Node.js",
   "main": "index.js",
   "scripts": {
-    "debug": "nodemon index.js",
-    "bot": "node index.js"
+    "dev": "nodemon index.js",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
