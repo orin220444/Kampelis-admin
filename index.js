@@ -6,32 +6,35 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 const reply = require('./locales/ru.json')
 bot.on('new_chat_members', (ctx) => {
   console.log(ctx.message);
-  const answer = newChatMembers;
+  //const answer = newChatMembers;
   ctx.reply(reply.newChatMembers);
 });
 
 bot.command('ban', (async (ctx) => {
   const chatMember = await ctx.telegram.getChatMember(ctx.message.chat.id, ctx.message.from.id);
   const banUser = await ctx.telegram.getChatMember(ctx.message.chat.id, ctx.message.reply_to_message.from.id);
-  const ischatMemberAnAdmin = await chatMember === 'creator' || 'administrator';
-  const isbanUserAnAdmin = await banUser === 'creator' || 'administrator';
+  const ischatMemberAnAdmin = await chatMember.status === 'creator' || 'administrator';
+  const isbanUserAnAdmin = await banUser.status === 'creator' || 'administrator';
+console.log('1', chatMember)
+console.log(ischatMemberAnAdmin)
   if (isbanUserAnAdmin == true) {
     ctx.reply(reply.banUserIsAnAdmin);
   } if (ischatMemberAnAdmin == false) {
     ctx.reply(reply.chatMemberIsNotAnAdmin);
   } else {
-    await ctx.telegram.restrictChatMember(ctx.chat.id, ctx.message.reply_to_message.from.id);
+   // await ctx.telegram.restrictChatMember(ctx.chat.id, ctx.message.reply_to_message.from.id);
     await ctx.reply('banned!');
   }
 }));
 bot.command('unban', (async (ctx) => {
   const chatMember = await ctx.telegram.getChatMember(ctx.message.chat.id, ctx.message.from.id);
   const unBanUser = await ctx.telegram.getChatMember(ctx.message.chat.id, ctx.message.reply_to_message.from.id);
-  const ischatMemberAnAdmin = await chatMember === 'creator' || 'administrator';
-  const isbanUserAnAdmin = await unBanUser === 'creator' || 'administrator';
-  if (isbanUserAnAdmin == true) {
+  const ischatMemberAnAdmin = await chatMember.status === 'creator' || 'administrator';
+  const isbanUserAnAdmin = await unBanUser.status === 'creator' || 'administrator'; 
+if (isbanUserAnAdmin == true) {
     ctx.reply(reply.banUserIsAnAdmin);
-  } if (ischatMemberAnAdmin == false) {
+  } 
+if (ischatMemberAnAdmin == false) {
     ctx.reply(reply.chatMemberIsNotAnAdmin);
   } else {
     await ctx.telegram.restrictChatMember(ctx.chat.id, ctx.message.reply_to_message.from.id, {
@@ -46,8 +49,8 @@ bot.command('unban', (async (ctx) => {
 bot.command('kick', (async (ctx) => {
   const chatMember = await ctx.telegram.getChatMember(ctx.message.chat.id, ctx.message.from.id);
   const kickUser = await ctx.telegram.getChatMember(ctx.chat.id, ctx.message.reply_to_message.from.id);
-  const ischatMemberAnAdmin = await chatMember === 'creator' || 'administrator';
-  const iskickUserAnAdmin = await kickUser === 'creator' || 'administrator';
+  const ischatMemberAnAdmin = await chatMember.status === 'creator' || 'administrator';
+  const iskickUserAnAdmin = await kickUser.status === 'creator' || 'administrator';
   if (iskickUserAnAdmin == true) {
     ctx.reply('кхмм, кикнуть администратора? интересно...');
   } if (ischatMemberAnAdmin == false) {
