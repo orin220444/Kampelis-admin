@@ -2,20 +2,12 @@
 const Telegraf = require('telegraf' );
 require('dotenv').config({path: './.env'});
 const bot = new Telegraf(process.env.BOT_TOKEN);
-const {
-  newChatMembers,
-  banUserIsAnAdmin,
-  chatMemberIsNotAnAdmin,
-  userBanned,
-  userKicked,
-  userUnBanned,
-  help,
-} = ('./locales/ru.js');
 
+const reply = require('./locales/ru.json')
 bot.on('new_chat_members', (ctx) => {
   console.log(ctx.message);
   const answer = newChatMembers;
-  ctx.reply(answer);
+  ctx.reply(reply.newChatMembers);
 });
 
 bot.command('ban', (async (ctx) => {
@@ -24,9 +16,9 @@ bot.command('ban', (async (ctx) => {
   const ischatMemberAnAdmin = await chatMember === 'creator' || 'administrator';
   const isbanUserAnAdmin = await banUser === 'creator' || 'administrator';
   if (isbanUserAnAdmin == true) {
-    ctx.reply(banUserIsAnAdmin);
+    ctx.reply(reply.banUserIsAnAdmin);
   } if (ischatMemberAnAdmin == false) {
-    ctx.reply(chatMemberIsNotAnAdmin);
+    ctx.reply(reply.chatMemberIsNotAnAdmin);
   } else {
     await ctx.telegram.restrictChatMember(ctx.chat.id, ctx.message.reply_to_message.from.id);
     await ctx.reply('banned!');
@@ -38,9 +30,9 @@ bot.command('unban', (async (ctx) => {
   const ischatMemberAnAdmin = await chatMember === 'creator' || 'administrator';
   const isbanUserAnAdmin = await unBanUser === 'creator' || 'administrator';
   if (isbanUserAnAdmin == true) {
-    ctx.reply(banUserIsAnAdmin);
+    ctx.reply(reply.banUserIsAnAdmin);
   } if (ischatMemberAnAdmin == false) {
-    ctx.reply(chatMemberIsNotAnAdmin);
+    ctx.reply(reply.chatMemberIsNotAnAdmin);
   } else {
     await ctx.telegram.restrictChatMember(ctx.chat.id, ctx.message.reply_to_message.from.id, {
       can_send_messages: true,
@@ -66,7 +58,7 @@ bot.command('kick', (async (ctx) => {
   }
 }));
 bot.command('help', (ctx) => {
-  ctx.reply(help);
+  ctx.reply(reply.help);
 });
 
 bot.catch((error) => {
