@@ -20,7 +20,7 @@ bot.command('ban', (async (ctx) => {
   } if (ischatMemberAnAdmin == false) {
     ctx.reply(reply.chatMemberIsNotAnAdmin);
   } else {
-    // await ctx.telegram.restrictChatMember(ctx.chat.id, ctx.message.reply_to_message.from.id);
+    await ctx.telegram.restrictChatMember(ctx.chat.id, ctx.message.reply_to_message.from.id);
     await ctx.reply('banned!');
   }
 }));
