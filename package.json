@@ -1,11 +1,11 @@
 {
   "name": "adminchatbot",
-  "version": "0.1",
-  "description": "",
+  "version": "0.2.0",
+  "description": "Bot for administering chats on Node.js",
   "main": "index.js",
   "scripts": {
-    "debug": "nodemon index.js",
-    "bot": "node index.js"
+    "dev": "nodemon index.js",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -19,8 +19,12 @@
   "homepage": "https://gitlab.com/orin220444/adminchatbot#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "nodemon": "^2.0.2",
-    "path": "^0.12.7",
-    "telegraf": "^3.34.1"
+    "telegraf": "^3.34.1",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "eslint": "^6.7.2",
+    "eslint-config-google": "^0.14.0",
+    "nodemon": "^2.0.2"
   }
 }
