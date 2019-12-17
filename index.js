@@ -21,7 +21,7 @@ bot.command('ban', (async (ctx) => {
     ctx.reply(reply.chatMemberIsNotAnAdmin);
   } else {
     await ctx.telegram.restrictChatMember(ctx.chat.id, ctx.message.reply_to_message.from.id);
-    await ctx.reply('banned!');
+    await ctx.reply(reply.userBanned);
   }
 }));
 bot.command('unban', (async (ctx) => {
@@ -41,7 +41,7 @@ bot.command('unban', (async (ctx) => {
       can_send_media_messages: true,
       can_add_web_page_previews: true,
     });
-    await ctx.reply('unbanned!');
+    await ctx.reply(reply.userUnbanned);
   }
 }));
 bot.command('kick', (async (ctx) => {
@@ -55,7 +55,7 @@ bot.command('kick', (async (ctx) => {
     ctx.reply('вы не администратор!');
   } else {
     await ctx.telegram.kickChatMember(ctx.chat.id, ctx.message.reply_to_message.from.id);
-    await ctx.reply('kicked!');
+    await ctx.reply(reply.userKicked);
   }
 }));
 bot.command('help', (ctx) => {
