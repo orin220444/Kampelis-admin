@@ -1,9 +1,9 @@
 {
-"newChatMembers": "`Приветствую тебя, ${ctx.message.from.first_name} в чате: ${ctx.chat.title}`",
-"banUserIsAnAdmin": "`Кхмм, заблокировать администратора? интересно...`",
+"newChatMembers":"Приветствую тебя \" + ctx.message.from.first_name + \" в чате: \" + ctx.chat.title",
+"banUserIsAnAdmin":"Кхмм, заблокировать администратора? интересно...",
 "chatMemberIsNotAnAdmin":"Вы не администратор!",
-"userBanned":"`Пользователь ${ctx.reply.from.id} забанен!`",
-"userUnBanned":"`Пользователь ${ctx.reply.from.id} разбанен!`",
+"userBanned":"Пользователь\" + ctx.reply.from.id + \"забанен!",
+"userUnBanned":"\"Пользователь ${ctx.reply.from.id} разбанен!",
 "userKicked":"`Пользователь ${ctx.reply.from.id} кикнут!`",
 "help":"введите /ban чтобы забанить пользователя,\n /unban чтобы разбанить \n и /kick чтобы кикнуть без возможности возвращения"
 }
