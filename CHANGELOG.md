@@ -9,6 +9,6 @@
 ## v0.2.0
 
 - Bug fixes
-- updated dependencies
-- added Eslint to devDependencies
-- updated README
+- Updated dependencies
+- Added Eslint to devDependencies
+- Updated README
