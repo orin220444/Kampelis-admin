@@ -21,7 +21,12 @@ bot.command('ban', (async (ctx) => {
   } if (ischatMemberAnAdmin == false) {
     ctx.reply(reply.chatMemberIsNotAnAdmin);
   } else {
-    await ctx.telegram.restrictChatMember(ctx.chat.id, ctx.message.reply_to_message.from.id);
+    await ctx.telegram.restrictChatMember(ctx.chat.id, ctx.message.reply_to_message.from.id, {
+      can_send_messages: false,
+      can_send_other_messages: false,
+      can_send_media_messages: false,
+      can_add_web_page_previews: false,
+    });
     await ctx.reply(reply.userBanned);
   }
 }));
@@ -51,9 +56,9 @@ bot.command('kick', (async (ctx) => {
   const ischatMemberAnAdmin = await chatMember.status === 'creator' || 'administrator';
   const iskickUserAnAdmin = await kickUser.status === 'creator' || 'administrator';
   if (iskickUserAnAdmin == true) {
-    ctx.reply('кхмм, кикнуть администратора? интересно...');
+    ctx.reply(reply.kickUserIsAnAdmin);
   } if (ischatMemberAnAdmin == false) {
-    ctx.reply('вы не администратор!');
+    ctx.reply(reply.chatMemberIsNotAnAdmin);
   } else {
     await ctx.telegram.kickChatMember(ctx.chat.id, ctx.message.reply_to_message.from.id);
     await ctx.reply(reply.userKicked);
