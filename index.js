@@ -1,13 +1,14 @@
 /* eslint-disable max-len */
-const Telegraf = require('telegraf' );
+const Telegraf = require('telegraf');
 require('dotenv').config({path: './.env'});
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 const reply = require('./locales/ru.json');
 bot.on('new_chat_members', (ctx) => {
-  console.log(ctx.message);
-  // const answer = newChatMembers;
   ctx.reply(reply.newChatMembers);
+});
+bot.help((ctx) => {
+  ctx.reply(reply.help);
 });
 
 bot.command('ban', (async (ctx) => {
@@ -58,9 +59,7 @@ bot.command('kick', (async (ctx) => {
     await ctx.reply(reply.userKicked);
   }
 }));
-bot.command('help', (ctx) => {
-  ctx.reply(reply.help);
-});
+
 
 bot.catch((error) => {
   console.log('Oops', error);
