@@ -25,11 +25,9 @@ bot.command('ban', (async (ctx) => {
   const ischatMemberAnAdmin = await chatMember.status === 'creator' || 'administrator';
   const isbanUserAnAdmin = await banUser.status === 'creator' || 'administrator';
   if (isbanUserAnAdmin == true) {
-    const answer = i18n.t('banUserIsAnAdmin');
-    ctx.replyWithHTML(answer);
+    ctx.replyWithHTML.i18n.t('banUserIsAnAdmin');
   } if (ischatMemberAnAdmin == false) {
-    const answer = i18n.t('chatMemberIsNotAnAdmin');
-    ctx.replyWithHTML(answer);
+    ctx.replyWithHTML.i18n.t('chatMemberIsNotAnAdmin');
   } else {
     await ctx.telegram.restrictChatMember(ctx.chat.id, ctx.message.reply_to_message.from.id, {
       can_send_messages: false,
