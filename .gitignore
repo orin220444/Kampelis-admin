@@ -1,4 +1,4 @@
 node_modules/
 .env
 *code-workspace
-.eslintrc.json
+.eslintrc*
