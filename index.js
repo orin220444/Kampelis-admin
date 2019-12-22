@@ -80,9 +80,13 @@ bot.command('kick', (async (ctx) => {
   }
 }));
 
+bot.use((ctx) => {
+  console.log(ctx.message);
+});
 
-bot.catch((error) => {
+bot.catch((error, ctx => {
   console.log('Oops', error);
+  ctx.telegram.sendMessage(364841884, error)
 });
 bot.launch().then(() => {
   console.log(`bot started`);
