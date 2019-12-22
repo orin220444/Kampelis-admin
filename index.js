@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 const Telegraf = require('telegraf');
 const I18n = require('telegraf-i18n');
-const path = require('path')
+const path = require('path');
 require('dotenv').config({path: './.env'});
 const bot = new Telegraf(process.env.BOT_TOKEN);
 const i18n = new I18n({
@@ -9,6 +9,8 @@ const i18n = new I18n({
   defaultLanguage: 'ru',
   defaultLanguageOnMissing: true,
 });
+bot.use(Telegraf.session());
+bot.use(i18n.middleware());
 bot.on('new_chat_members', (ctx) => {
   answer = ctx.i18n.t('newChatMembers');
   ctx.replyWithHTML(answer);
@@ -23,10 +25,10 @@ bot.command('ban', (async (ctx) => {
   const ischatMemberAnAdmin = await chatMember.status === 'creator' || 'administrator';
   const isbanUserAnAdmin = await banUser.status === 'creator' || 'administrator';
   if (isbanUserAnAdmin == true) {
-    const answer = i18n('banUserIsAnAdmin');
+    const answer = i18n.t('banUserIsAnAdmin');
     ctx.replyWithHTML(answer);
   } if (ischatMemberAnAdmin == false) {
-    const answer = i18n('chatMemberIsNotAnAdmin');
+    const answer = i18n.t('chatMemberIsNotAnAdmin');
     ctx.replyWithHTML(answer);
   } else {
     await ctx.telegram.restrictChatMember(ctx.chat.id, ctx.message.reply_to_message.from.id, {
