@@ -18,7 +18,10 @@ bot.on('new_chat_members', (ctx) => {
 bot.help((ctx) => {
   ctx.reply(reply.help);
 });
-
+bot.command('test', (ctx) => {
+  answer = ctx.i18n.t('test');
+  ctx.replyWithHTML(answer);
+});
 bot.command('ban', (async (ctx) => {
   const chatMember = await ctx.telegram.getChatMember(ctx.message.chat.id, ctx.message.from.id);
   const banUser = await ctx.telegram.getChatMember(ctx.message.chat.id, ctx.message.reply_to_message.from.id);
@@ -84,10 +87,10 @@ bot.use((ctx) => {
   console.log(ctx.message);
 });
 
-bot.catch((error, ctx => {
+bot.catch((error, (ctx) => {
   console.log('Oops', error);
-  ctx.telegram.sendMessage(364841884, error)
-});
+  ctx.telegram.sendMessage(364841884, error);
+}));
 bot.launch().then(() => {
   console.log(`bot started`);
 });
