@@ -4,9 +4,9 @@
   "description": "Bot for administering chats on Node.js",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js",
+    "dev": "npm run eslint && nodemon index.js",
     "start": "node index.js",
-    "eslint": "./node_modules/.bin/eslint index.js"
+    "eslint": "./node_modules/.bin/eslint index.js --fix"
   },
   "repository": {
     "type": "git",
