@@ -11,6 +11,10 @@ const i18n = new I18n({
 });
 bot.use(Telegraf.session());
 bot.use(i18n.middleware());
+bot.use((ctx) => {
+  console.log(ctx.message);
+});
+
 bot.on('new_chat_members', (ctx) => {
   answer = ctx.i18n.t('newChatMembers');
   ctx.reply(answer);
@@ -49,11 +53,11 @@ bot.command('unban', (async (ctx) => {
   const chatMember = await ctx.telegram.getChatMember(ctx.message.chat.id, ctx.message.from.id);
   const unBanUser = await ctx.telegram.getChatMember(ctx.message.chat.id, ctx.message.reply_to_message.from.id);
   const ischatMemberAnAdmin = await chatMember.status !== 'creator' || 'administrator';
-  const isbanUserAnAdmin = await unBanUser.status === 'creator' || 'administrator';
+  const isunbanUserAnAdmin = await unBanUser.status === 'creator' || 'administrator';
 
   switch (true) {
-    case isbanUserAnAdmin:
-      ctx.reply.i18n.t('banUserIsAnAdmin');
+    case isunbanUserAnAdmin:
+      ctx.reply.i18n.t('unbanUserIsAnAdmin');
       break;
     case ischatMemberAnAdmin:
       ctx.reply.i18n.t('chatMemberIsNotAnAdmin');
@@ -87,9 +91,6 @@ bot.command('kick', (async (ctx) => {
   }
 }));
 
-bot.use((ctx) => {
-  console.log(ctx.message);
-});
 
 bot.catch((error, ctx) => {
   console.log('Oops', error);

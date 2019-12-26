@@ -1,5 +1,6 @@
 newChatMembers: Приветствую тебя, ${ctx.message.from.first_name} в чате ${ctx.chat.title}
 banUserIsAnAdmin: Кхмм, заблокировать администратора? интересно...
+unbanUserIsAnAdmin: Кхмм, разблокировать администратора? интересно...
 chatMemberIsNotAnAdmin: Вы не администратор!
 userBanned: Пользователь ${ctx.reply.from.id} забанен!
 userUnBanned: Пользователь ${ctx.reply.from.id} разбанен!
