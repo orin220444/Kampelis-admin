@@ -70,6 +70,7 @@ bot.command('unban', (async (ctx) => {
         can_add_web_page_previews: true,
       });
       await ctx.reply.i18n.t('userUnbanned');
+      break;
   }
 }));
 bot.command('kick', (async (ctx) => {
@@ -88,6 +89,7 @@ bot.command('kick', (async (ctx) => {
     default:
       await ctx.telegram.kickChatMember(ctx.chat.id, ctx.message.reply_to_message.from.id);
       await ctx.reply.i18n.t('userKicked');
+      break;
   }
 }));
 
