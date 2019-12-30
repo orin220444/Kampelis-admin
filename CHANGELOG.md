@@ -12,3 +12,10 @@
 - Updated dependencies
 - Added Eslint to devDependencies
 - Updated README
+
+## v0.3.0
+
+- Bug fixes
+- Updated dependencies
+- Replies moved to yaml
+- Support multilanguage
