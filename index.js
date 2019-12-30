@@ -11,9 +11,6 @@ const i18n = new I18n({
 });
 bot.use(Telegraf.session());
 bot.use(i18n.middleware());
-bot.use((ctx) => {
-  console.log(ctx.message);
-});
 
 bot.on('new_chat_members', (ctx) => {
   answer = ctx.i18n.t('newChatMembers');
