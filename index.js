@@ -9,18 +9,22 @@ const i18n = new I18n({
   defaultLanguage: 'ru',
   defaultLanguageOnMissing: true,
 });
-bot.use(Telegraf.session());
+
 bot.use(i18n.middleware());
 
 bot.on('new_chat_members', (ctx) => {
-  answer = ctx.i18n.t('newChatMembers');
+  const answer = ctx.i18n.t('newChatMembers', {
+    user: ctx.from.first_name,
+    chat: ctx.chat.title,
+  });
   ctx.reply(answer);
 });
 bot.help((ctx) => {
-  ctx.reply.i18n.t('help');
+  const answer = ctx.i18n.t('help');
+  ctx.reply(answer);
 });
 bot.command('test', (ctx) => {
-  answer = ctx.i18n.t('test');
+  const answer = ctx.i18n.t('test');
   ctx.reply(answer);
 });
 bot.command('ban', (async (ctx) => {
@@ -30,10 +34,12 @@ bot.command('ban', (async (ctx) => {
   const isbanUserAnAdmin = await banUser.status === 'creator' || 'administrator';
 
   if (isbanUserAnAdmin == true) {
-    ctx.reply.i18n.t('banUserIsAnAdmin');
+    const answer = ctx.i18n.t('banUserIsAnAdmin');
+    ctx.reply(answer);
   }
   if (ischatMemberAnAdmin == false) {
-    ctx.reply.i18n.t('chatMemberIsNotAnAdmin');
+    const answer = ctx.i18n.t('chatMemberIsNotAnAdmin');
+    ctx.reply(answer);
   } else {
     await ctx.telegram.restrictChatMember(ctx.chat.id, ctx.message.reply_to_message.from.id, {
       can_send_messages: false,
@@ -41,7 +47,8 @@ bot.command('ban', (async (ctx) => {
       can_send_media_messages: false,
       can_add_web_page_previews: false,
     });
-    await ctx.reply.i18n.t('userBanned');
+    const answer = await ctx.i18n.t('userBanned', {user: ctx.message.reply_to_message.from.first_name});
+    await ctx.reply(answer);
   }
 }
 ));
@@ -53,10 +60,12 @@ bot.command('unban', (async (ctx) => {
 
 
   if (isunbanUserAnAdmin == true) {
-    ctx.reply.i18n.t('unbanUserIsAnAdmin');
+    const answer = ctx.i18n.t('unbanUserIsAnAdmin');
+    ctx.reply(answer);
   }
   if (ischatMemberAnAdmin == false) {
-    ctx.reply.i18n.t('chatMemberIsNotAnAdmin');
+    const answer = ctx.i18n.t('chatMemberIsNotAnAdmin');
+    ctx.reply(answer);
   } else {
     await ctx.telegram.restrictChatMember(ctx.chat.id, ctx.message.reply_to_message.from.id, {
       can_send_messages: true,
@@ -64,7 +73,8 @@ bot.command('unban', (async (ctx) => {
       can_send_media_messages: true,
       can_add_web_page_previews: true,
     });
-    await ctx.reply.i18n.t('userUnbanned');
+    const answer = await ctx.i18n.t('userUnBanned', {user: ctx.message.reply_to_message.from.first_name});
+    await ctx.reply(answer);
   }
 }
 ));
@@ -76,13 +86,16 @@ bot.command('kick', (async (ctx) => {
 
 
   if (iskickUserAnAdmin == true) {
-    ctx.reply.i18n.t('kickUserIsAnAdmin');
+    const answer = ctx.i18n.t('kickUserIsAnAdmin');
+    ctx.reply(answer);
   }
   if (ischatMemberAnAdmin == false) {
-    ctx.reply.i18n.t('chatMemberIsNotAnAdmin');
+    const answer = ctx.i18n.t('chatMemberIsNotAnAdmin');
+    ctx.reply(answer);
   } else {
     await ctx.telegram.kickChatMember(ctx.chat.id, ctx.message.reply_to_message.from.id);
-    await ctx.reply.i18n.t('userKicked');
+    const answer = await ctx.i18n.t('userKicked', {user: ctx.message.reply_to_message.from.first_name});
+    await ctx.reply(answer);
   }
 }
 ));

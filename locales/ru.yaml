@@ -1,10 +1,10 @@
-newChatMembers: Приветствую тебя, ${ctx.message.from.first_name} в чате ${ctx.chat.title}
+newChatMembers: Приветствую тебя, ${user} в чате ${chat}
 banUserIsAnAdmin: Кхмм, заблокировать администратора? интересно...
 unbanUserIsAnAdmin: Кхмм, разблокировать администратора? интересно...
 chatMemberIsNotAnAdmin: Вы не администратор!
-userBanned: Пользователь ${ctx.reply.from.id} забанен!
-userUnBanned: Пользователь ${ctx.reply.from.id} разбанен!
-userKicked: Пользователь ${ctx.reply.from.id} кикнут!
+userBanned: Пользователь ${user} забанен!
+userUnBanned: Пользователь ${user} разбанен!
+userKicked: Пользователь ${user} кикнут!
 help: |
   введите /ban чтобы забанить пользователя,
   /unban чтобы разбанить
