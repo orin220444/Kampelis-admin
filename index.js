@@ -103,7 +103,7 @@ bot.command('kick', (async (ctx) => {
 
 bot.catch((error, ctx) => {
   console.log('Oops', error);
-  ctx.telegram.sendMessage(364841884, error);
+  ctx.telegram.sendMessage(process.env.CREATOR_ID, error);
 });
 bot.launch().then(() => {
   console.log(`bot started`);
