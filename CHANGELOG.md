@@ -19,3 +19,8 @@
 - Updated dependencies
 - Replies moved to yaml
 - Support multilanguage
+
+## v.0.3.1
+
+- Updated Telegraf to 3.35.0
+- Bot now sends errors to creator in Telegram
