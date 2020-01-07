@@ -32,3 +32,8 @@
 ## v.0.3.3
 
 - Bug fixes
+
+## v.0.3.4
+
+- Added command `/f`
+- Added trigger **gifid** for getting file_id of the GIF
