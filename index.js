@@ -9,7 +9,7 @@ const i18n = new I18n({
   defaultLanguage: 'ru',
   defaultLanguageOnMissing: true,
 });
-
+const gifs = require('./gifs.json');
 bot.use(i18n.middleware());
 
 bot.on('new_chat_members', (ctx) => {
@@ -24,8 +24,8 @@ bot.help((ctx) => {
   ctx.reply(answer);
 });
 bot.command('f', (ctx) => {
-  const answer = ctx.i18n.t('f');
-  ctx.reply(answer);
+  const answer = gifs.f.first;
+  ctx.replyWithDocument(answer);
 });
 bot.command('ban', (async (ctx) => {
   const chatMember = await ctx.telegram.getChatMember(ctx.message.chat.id, ctx.message.from.id);
@@ -99,7 +99,6 @@ bot.command('kick', (async (ctx) => {
   }
 }
 ));
-
 
 bot.catch((error, ctx) => {
   console.log('Oops', error);
