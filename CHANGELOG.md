@@ -28,3 +28,7 @@
 ## v.0.3.2
 
 - Added support of Markdown in replies
+
+## v.0.3.3
+
+- Bug fixes
