@@ -32,9 +32,13 @@ bot.command('test', (ctx) => {
   });
   ctx.replyWithMarkdown(answer);
 });
+bot.hears('gifid', (ctx) => {
+  console.log(ctx.message.reply_to_message.animation.file_id);
+});
 bot.command('f', (ctx) => {
-  const answer = gifs.f.first;
-  ctx.replyWithDocument(answer);
+  const gif = gifs.f;
+  const randomGif = gif[Math.floor(Math.random() * gif.length)];
+  ctx.replyWithDocument(randomGif);
 });
 bot.command('ban', (async (ctx) => {
   const chatMember = await ctx.telegram.getChatMember(ctx.message.chat.id, ctx.message.from.id);
