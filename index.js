@@ -17,7 +17,7 @@ bot.on('new_chat_members', (ctx) => {
     user: ctx.from.first_name,
     chat: ctx.chat.title,
   });
-  ctx.reply(answer);
+  ctx.replyWithMarkdown(answer);
 });
 bot.help((ctx) => {
   const answer = ctx.i18n.t('help');
@@ -25,7 +25,7 @@ bot.help((ctx) => {
 });
 bot.command('test', (ctx) => {
   const answer = ctx.i18n.t('test');
-  ctx.reply(answer);
+  ctx.replyWithMarkdown(answer);
 });
 bot.command('ban', (async (ctx) => {
   const chatMember = await ctx.telegram.getChatMember(ctx.message.chat.id, ctx.message.from.id);
@@ -48,7 +48,7 @@ bot.command('ban', (async (ctx) => {
       can_add_web_page_previews: false,
     });
     const answer = await ctx.i18n.t('userBanned', {user: ctx.message.reply_to_message.from.first_name});
-    await ctx.reply(answer);
+    await ctx.replyWithMarkdown(answer);
   }
 }
 ));
@@ -74,7 +74,7 @@ bot.command('unban', (async (ctx) => {
       can_add_web_page_previews: true,
     });
     const answer = await ctx.i18n.t('userUnBanned', {user: ctx.message.reply_to_message.from.first_name});
-    await ctx.reply(answer);
+    await ctx.replyWithMarkdown(answer);
   }
 }
 ));
@@ -95,7 +95,7 @@ bot.command('kick', (async (ctx) => {
   } else {
     await ctx.telegram.kickChatMember(ctx.chat.id, ctx.message.reply_to_message.from.id);
     const answer = await ctx.i18n.t('userKicked', {user: ctx.message.reply_to_message.from.first_name});
-    await ctx.reply(answer);
+    await ctx.replyWithMarkdown(answer);
   }
 }
 ));
