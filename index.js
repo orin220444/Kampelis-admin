@@ -56,7 +56,7 @@ bot.command('ban', (async (ctx) => {
       user: ctx.message.reply_to_message.from.first_name,
       user_id: ctx.message.reply_to_message.from.id,
     });
-    await ctx.replyWithMarkdown(answer, {});
+    await ctx.replyWithMarkdown(answer);
   }
 }
 ));
@@ -81,11 +81,11 @@ bot.command('unban', (async (ctx) => {
       can_send_media_messages: true,
       can_add_web_page_previews: true,
     });
-    const answer = await ctx.i18n.t('userUnBanned', {user: ctx.message.reply_to_message.from.first_name});
-    await ctx.replyWithMarkdown(answer, {
-      user_id: ctx.from.id,
+    const answer = await ctx.i18n.t('userUnBanned', {
+      user: ctx.message.reply_to_message.from.first_name,
       user_id: ctx.message.reply_to_message.from.id,
     });
+    await ctx.replyWithMarkdown(answer);
   }
 }
 ));
@@ -105,11 +105,11 @@ bot.command('kick', (async (ctx) => {
     ctx.reply(answer);
   } else {
     await ctx.telegram.kickChatMember(ctx.chat.id, ctx.message.reply_to_message.from.id);
-    const answer = await ctx.i18n.t('userKicked', {user: ctx.message.reply_to_message.from.first_name});
-    await ctx.replyWithMarkdown(answer, {
-      user_id: ctx.from.id,
+    const answer = await ctx.i18n.t('userKicked', {
+      user: ctx.message.reply_to_message.from.first_name,
       user_id: ctx.message.reply_to_message.from.id,
     });
+    await ctx.replyWithMarkdown(answer);
   }
 }
 ));
