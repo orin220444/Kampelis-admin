@@ -1,16 +1,16 @@
-newChatMembers: Приветствую тебя, [${user}](tg://user?id=${user.id}) в чате ${chat}
+newChatMembers: Приветствую тебя, [${user}](tg://user?id=${user_id}) в чате ${chat}
 banUserIsAnAdmin: Кхмм, заблокировать администратора? интересно...
 unbanUserIsAnAdmin: Кхмм, разблокировать администратора? интересно...
 chatMemberIsNotAnAdmin: Вы не администратор!
-userBanned: Пользователь [${user}](tg://user?id=${user.id}) забанен!
-userUnBanned: Пользователь [${user}](tg://user?id=${user.id}) разбанен!
-userKicked: Пользователь {${user}](tg://user?id=${user.id}) кикнут!
+userBanned: Пользователь [${user}](tg://user?id=${user_id}) забанен!
+userUnBanned: Пользователь [${user}](tg://user?id=${user_id}) разбанен!
+userKicked: Пользователь [${user}](tg://user?id=${user_id}) кикнут!
 help: |
   введите /ban чтобы забанить пользователя,
   /unban чтобы разбанить
   и /kick чтобы кикнуть без возможности возвращения
 kickUserIsAnAdmin: Кхмм, кикнуть администратора? интересно...
 test: |
- тест, 
-*ваш айди* [${user}](tg://user?id=${user.id})
-*чат айди* [chat](tg://chat?id=${chat.id})
+  тест, 
+  *ваш айди* [${user}](tg://user?id=${user_id})
+  *название чата* ${chat}
