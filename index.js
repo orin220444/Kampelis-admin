@@ -16,16 +16,21 @@ bot.on('new_chat_members', (ctx) => {
   const answer = ctx.i18n.t('newChatMembers', {
     user: ctx.from.first_name,
     chat: ctx.chat.title,
+    user_id: ctx.from.id,
   });
-  ctx.reply(answer);
+  ctx.replyWithMarkdown(answer);
 });
 bot.help((ctx) => {
   const answer = ctx.i18n.t('help');
   ctx.reply(answer);
 });
 bot.command('test', (ctx) => {
-  const answer = ctx.i18n.t('test');
-  ctx.reply(answer);
+  const answer = ctx.i18n.t('test', {
+    user: ctx.from.first_name,
+    chat: ctx.chat.title,
+    user_id: ctx.from.id,
+  });
+  ctx.replyWithMarkdown(answer);
 });
 bot.command('ban', (async (ctx) => {
   const chatMember = await ctx.telegram.getChatMember(ctx.message.chat.id, ctx.message.from.id);
@@ -47,8 +52,11 @@ bot.command('ban', (async (ctx) => {
       can_send_media_messages: false,
       can_add_web_page_previews: false,
     });
-    const answer = await ctx.i18n.t('userBanned', {user: ctx.message.reply_to_message.from.first_name});
-    await ctx.reply(answer);
+    const answer = await ctx.i18n.t('userBanned', {
+      user: ctx.message.reply_to_message.from.first_name,
+      user_id: ctx.message.reply_to_message.from.id,
+    });
+    await ctx.replyWithMarkdown(answer, {});
   }
 }
 ));
@@ -74,7 +82,10 @@ bot.command('unban', (async (ctx) => {
       can_add_web_page_previews: true,
     });
     const answer = await ctx.i18n.t('userUnBanned', {user: ctx.message.reply_to_message.from.first_name});
-    await ctx.reply(answer);
+    await ctx.replyWithMarkdown(answer, {
+      user_id: ctx.from.id,
+      user_id: ctx.message.reply_to_message.from.id,
+    });
   }
 }
 ));
@@ -95,7 +106,10 @@ bot.command('kick', (async (ctx) => {
   } else {
     await ctx.telegram.kickChatMember(ctx.chat.id, ctx.message.reply_to_message.from.id);
     const answer = await ctx.i18n.t('userKicked', {user: ctx.message.reply_to_message.from.first_name});
-    await ctx.reply(answer);
+    await ctx.replyWithMarkdown(answer, {
+      user_id: ctx.from.id,
+      user_id: ctx.message.reply_to_message.from.id,
+    });
   }
 }
 ));
