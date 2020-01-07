@@ -23,8 +23,8 @@ bot.help((ctx) => {
   const answer = ctx.i18n.t('help');
   ctx.reply(answer);
 });
-bot.command('test', (ctx) => {
-  const answer = ctx.i18n.t('test');
+bot.command('f', (ctx) => {
+  const answer = ctx.i18n.t('f');
   ctx.reply(answer);
 });
 bot.command('ban', (async (ctx) => {
