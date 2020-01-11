@@ -9,7 +9,7 @@ const i18n = new I18n({
   defaultLanguage: 'ru',
   defaultLanguageOnMissing: true,
 });
-const gifs = require('./gifs.json');
+const gifs = require('./config/gifs.json');
 bot.use(i18n.middleware());
 
 bot.on('new_chat_members', (ctx) => {
