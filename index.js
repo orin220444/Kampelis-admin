@@ -40,6 +40,10 @@ bot.command('f', (ctx) => {
   const randomGif = gif[Math.floor(Math.random() * gif.length)];
   ctx.replyWithDocument(randomGif);
 });
+bot.command('shrug', (ctx) => {
+  const answer = ctx.i18n.t('shrug');
+  ctx.reply(answer);
+});
 bot.command('ban', (async (ctx) => {
   const chatMember = await ctx.telegram.getChatMember(ctx.message.chat.id, ctx.message.from.id);
   const banUser = await ctx.telegram.getChatMember(ctx.message.chat.id, ctx.message.reply_to_message.from.id);
