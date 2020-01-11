@@ -11,7 +11,7 @@ const i18n = new I18n({
 });
 const gifs = require('./config/gifs.json');
 bot.use(i18n.middleware());
-
+// new features: check changing username
 bot.on('new_chat_members', (ctx) => {
   const answer = ctx.i18n.t('newChatMembers', {
     user: ctx.from.first_name,
@@ -40,7 +40,7 @@ bot.command('f', (ctx) => {
   const randomGif = gif[Math.floor(Math.random() * gif.length)];
   ctx.replyWithDocument(randomGif);
 });
-bot.command('shrug', (ctx) => {
+Telegraf.hears('/shrug', (ctx) => {
   const answer = ctx.i18n.t('shrug');
   ctx.reply(answer);
 });
