@@ -1,26 +1,26 @@
-# Бот для администрирования чатов на Node.js
+# Bot for administering telegram chats on Node.js
 
-## Бот умеет
+## Bot can
 
-- Банить участников и кикать участников
+- Respond to the arrival of new members to the chat
 
-- Отвечать на приход новых участников в чат
+- To ban and kick chat members
 
-- Банить участников и кикать участников
+- Salute
 
-## Установка
+## Installing
 
-1. Скачать Node.js [с официального сайта](https://nodejs.org/)
+1. Download Node.js [from official web page](https://nodejs.org/)
 
-1. В папке с клонированным ботом прописать:
+1. In the directory with the cloned bot:
 
-- `$ npm install` - Для автоматической установки зависимостей
+- `$ npm install` - For installing dependencies
 
-- `$ npm start` - Команда для запуска бота
+- `$ npm start` - Start bot
 
-## Список команд
+## List of commands
 
-- `/ban` - Бан участника
-- `/unban` - Разбан участника
-- `/kick` - Кик участника из чата (участник после не сможет вернуться сам)
-- `/f` - Отдать честь
+- `/ban` - Ban member
+- `/unban` - Unban member
+- `/kick` - Kick member from chat (member will not be able to return)
+- `/f` - Salute
