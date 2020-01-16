@@ -4,6 +4,7 @@ const I18n = require('telegraf-i18n');
 const path = require('path');
 require('dotenv').config({path: './.env'});
 const bot = new Telegraf(process.env.BOT_TOKEN);
+const {version} = require('./package.json');
 const i18n = new I18n({
   directory: path.resolve(__dirname, 'locales'),
   defaultLanguage: 'ru',
@@ -29,6 +30,7 @@ bot.command('test', (ctx) => {
     user: ctx.from.first_name,
     chat: ctx.chat.title,
     user_id: ctx.from.id,
+    version: version,
   });
   ctx.replyWithMarkdown(answer);
 });
