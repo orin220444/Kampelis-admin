@@ -47,3 +47,6 @@
 
 - Added output of version on /test
 
+## v.0.4.0
+
+- Added support of MongoDB
