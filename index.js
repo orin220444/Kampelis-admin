@@ -10,9 +10,13 @@ const i18n = new I18n({
   defaultLanguage: 'ru',
   defaultLanguageOnMissing: true,
 });
+const {User} = require('./database.js');
 const gifs = require('./config/gifs.json');
 bot.use(i18n.middleware());
-// new features: check changing username
+/*
+  TODO: check changing username
+  TODO: pidor of the day
+*/
 bot.on('new_chat_members', (ctx) => {
   const answer = ctx.i18n.t('newChatMembers', {
     user: ctx.from.first_name,
@@ -40,6 +44,23 @@ bot.command('test', async (ctx) => {
 
     ctx.deleteMessage(ctx.reply_to_message.message_id);
   }, 5 * 1000);
+});
+bot.command('reg', async (ctx) => {
+  const user = await User.findOne({id: ctx.from.id});
+
+  if (!user) {
+    const user = await User.create({
+      username: ctx.from.username,
+      id: ctx.from.id,
+      firstname: ctx.from.first_name,
+
+    });
+    user.save();
+    const answer = ctx.i18n.t('user.added');
+    ctx.reply(answer);
+  };
+  const answer = ctx.i18n.t('user.exists');
+  ctx.reply(answer);
 });
 bot.hears('gifid', (ctx) => {
   console.log(ctx.message.reply_to_message.animation.file_id);
