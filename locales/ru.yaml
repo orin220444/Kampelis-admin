@@ -5,6 +5,7 @@ chatMemberIsNotAnAdmin: Вы не администратор!
 userBanned: Пользователь [${user}](tg://user?id=${user_id}) забанен!
 userUnBanned: Пользователь [${user}](tg://user?id=${user_id}) разбанен!
 userKicked: Пользователь [${user}](tg://user?id=${user_id}) кикнут!
+error: \*Чет не работает* ${error} 
 help: |
   Введите /f чтобы отдать честь
   /ban чтобы забанить пользователя,

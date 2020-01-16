@@ -26,4 +26,8 @@ module.exports = async (ctx) => {
     });
     await ctx.replyWithMarkdown(answer);
   }
+  trycatch((error) => {
+    const answer = ctx.i18n.t('error', {error});
+    ctx.replyWithMarkdown(answer);
+  });
 };
