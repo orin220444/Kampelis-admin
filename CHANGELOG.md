@@ -42,3 +42,8 @@
 
 - Added command `/shrug`
 - gifs.json moved to config directory
+
+## v.0.3.6
+
+- Added output of version on /test
+
