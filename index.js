@@ -9,6 +9,7 @@ const i18n = new I18n({
   defaultLanguage: 'ru',
   defaultLanguageOnMissing: true,
 });
+const {User} = require('./database.js');
 const gifs = require('./config/gifs.json');
 bot.use(i18n.middleware());
 /*
@@ -34,6 +35,23 @@ bot.command('test', (ctx) => {
     user_id: ctx.from.id,
   });
   ctx.replyWithMarkdown(answer);
+});
+bot.command('reg', async (ctx) => {
+  const user = await User.findOne({id: ctx.from.id});
+
+  if (!user) {
+    const user = await User.create({
+      username: ctx.from.username,
+      id: ctx.from.id,
+      firstname: ctx.from.first_name,
+
+    });
+    user.save();
+    const answer = ctx.i18n.t('user.added');
+    ctx.reply(answer);
+  };
+  const answer = ctx.i18n.t('user.exists');
+  ctx.reply(answer);
 });
 bot.hears('gifid', (ctx) => {
   console.log(ctx.message.reply_to_message.animation.file_id);
