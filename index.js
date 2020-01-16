@@ -11,7 +11,10 @@ const i18n = new I18n({
 });
 const gifs = require('./config/gifs.json');
 bot.use(i18n.middleware());
-// new features: check changing username
+/*
+  TODO: check changing username
+  TODO: pidor of the day
+*/
 bot.on('new_chat_members', (ctx) => {
   const answer = ctx.i18n.t('newChatMembers', {
     user: ctx.from.first_name,
