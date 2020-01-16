@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 const Telegraf = require('telegraf');
 const I18n = require('telegraf-i18n');
 const path = require('path');
@@ -46,8 +45,7 @@ bot.help((ctx) => {
   const answer = ctx.i18n.t('help');
   ctx.reply(answer);
 });
-bot.command('test', async (ctx) => {
-  await console.log(ctx.message.message_id);
+bot.command('test', (ctx) => {
   const answer = ctx.i18n.t('test', {
     user: ctx.from.first_name,
     chat: ctx.chat.title,
@@ -55,11 +53,9 @@ bot.command('test', async (ctx) => {
     version: version,
   });
   ctx.replyWithMarkdown(answer);
-  await console.log(ctx.reply_to_message.message_id);
   setTimeout(() => {
+    // FIXME: autodeleting
     ctx.deleteMessage(ctx.message.message_id);
-
-    ctx.deleteMessage(ctx.reply_to_message.message_id);
   }, 5 * 1000);
 });
 bot.command('reg', async (ctx) => {
@@ -172,12 +168,15 @@ bot.command('kick', (async (ctx) => {
   }
 }
 ));
+bot.use((ctx) => {
+  console.log(ctx.message);
+});
+
 
 bot.catch((error, ctx) => {
   console.log('Oops', error);
   ctx.telegram.sendMessage(process.env.CREATOR_ID, error);
 });
-
 bot.launch().then(() => {
   console.log(`bot started`);
 });
