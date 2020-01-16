@@ -11,6 +11,7 @@ const userSchema = new Schema({
     unique: true,
     required: true,
   },
+  firstname: String,
 });
 const User = mongoose.model('User', userSchema);
 module.exports = {
