@@ -50,3 +50,7 @@
 ## v.0.4.0
 
 - Added support of MongoDB
+
+## v.0.4.1
+
+- Checking the user for the presence in the database
