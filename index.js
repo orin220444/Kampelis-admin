@@ -25,7 +25,8 @@ bot.help((ctx) => {
   const answer = ctx.i18n.t('help');
   ctx.reply(answer);
 });
-bot.command('test', (ctx) => {
+bot.command('test', async (ctx) => {
+  await console.log(ctx.message.message_id);
   const answer = ctx.i18n.t('test', {
     user: ctx.from.first_name,
     chat: ctx.chat.title,
@@ -33,6 +34,12 @@ bot.command('test', (ctx) => {
     version: version,
   });
   ctx.replyWithMarkdown(answer);
+  await console.log(ctx.reply_to_message.message_id);
+  setTimeout(() => {
+    ctx.deleteMessage(ctx.message.message_id);
+
+    ctx.deleteMessage(ctx.reply_to_message.message_id);
+  }, 5 * 1000);
 });
 bot.hears('gifid', (ctx) => {
   console.log(ctx.message.reply_to_message.animation.file_id);
