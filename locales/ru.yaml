@@ -11,6 +11,15 @@ user:
     Вы успешно зарегистрировались!
   exists: | 
     Вы зарегистрированы!
+  update: 
+    username: |
+      Пользователь [id]\(tg://user?id=${user_id}\) сменил юзернейм с ${lastusername} на ${newusername}
+    firstname: |
+      Пользователь [id]\(tg://user?id=${user_id}\) сменил ферстнейм с ${lastfirstname} на ${newfirstname}
+    bothnames: |
+      Пользователь [id]\(tg://user?id=${user_id}\) сменил юзернейм с ${lastusername} на ${newusername}
+       и ферстнейм с ${lastfirstname} на ${newfirstname}
+
 error: \*Чет не работает* ${error} 
 help: |
   Введите /f чтобы отдать честь

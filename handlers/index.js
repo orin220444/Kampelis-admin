@@ -8,6 +8,7 @@ const handleGifID = require('./gifid');
 const handleKick = require('./kick');
 const handleShrug = require('./shrug');
 const handleReg = require('./reg');
+const handleChecker = require('./checker');
 module.exports = {
   handleWelcome,
   handleBan,
@@ -19,4 +20,5 @@ module.exports = {
   handleKick,
   handleReg,
   handleShrug,
+  handleChecker,
 };

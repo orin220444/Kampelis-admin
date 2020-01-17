@@ -19,10 +19,15 @@ const {
   handleKick,
   handleReg,
   handleShrug,
+  handleChecker,
 } = require('./handlers');
 bot.use(i18n.middleware());
-
+/*
+TODO: pidor of the day
+TODO: change ctx.* to db vars
+*/
 bot.on('new_chat_members', handleWelcome);
+bot.on('message', handleChecker);
 bot.command('help', handleHelp);
 bot.command('test', handleTest);
 bot.hears('gifid', handleGifID);
