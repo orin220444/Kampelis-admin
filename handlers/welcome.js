@@ -19,7 +19,7 @@ module.exports = async (ctx) => {
         chat: ctx.chat.title,
         user_id: user.id,
       });
-      ctx.replyWithMarkdown(answer);
+      ctx.replyWithMarkdown(answer, {reply_to_message_id: ctx.message.message_id});
     } catch (error) {
       console.log(error);
     }
@@ -30,7 +30,7 @@ module.exports = async (ctx) => {
         chat: ctx.chat.title,
         user_id: user.id,
       });
-      ctx.replyWithMarkdown(answer);
+      ctx.replyWithMarkdown(answer, {reply_to_message_id: ctx.message.message_id});
     } catch (error) {
     }
   }

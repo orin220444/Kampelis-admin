@@ -7,7 +7,7 @@ module.exports = (ctx) => {
       user_id: ctx.from.id,
       version: version,
     });
-    ctx.replyWithMarkdown(answer);
+    ctx.replyWithMarkdown(answer, {reply_to_message_id: ctx.message.message_id});
   } catch (error) {
     console.log(error);
   }
