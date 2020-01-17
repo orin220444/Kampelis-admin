@@ -25,6 +25,8 @@ bot.use(i18n.middleware());
 /*
 TODO: pidor of the day
 TODO: change ctx.* to db vars
+TODO: .catch
+TODO: reply
 */
 bot.on('new_chat_members', handleWelcome);
 bot.on('message', handleChecker);

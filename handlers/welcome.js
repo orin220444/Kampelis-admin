@@ -10,16 +10,16 @@ module.exports = async (ctx) => {
     });
     await user.save();
     const answer = ctx.i18n.t('newChatMembers', {
-      user: ctx.from.first_name,
+      user: user.firstname,
       chat: ctx.chat.title,
-      user_id: ctx.from.id,
+      user_id: user.id,
     });
     ctx.replyWithMarkdown(answer);
   } else {
     const answer = ctx.i18n.t('returnedChatMembers', {
-      user: ctx.from.first_name,
+      user: user.firstname,
       chat: ctx.chat.title,
-      user_id: ctx.from.id,
+      user_id: user.id,
     });
     ctx.replyWithMarkdown(answer);
   }
