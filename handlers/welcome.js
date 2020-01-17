@@ -1,4 +1,4 @@
-const {User} = require('./database.js');
+const {User} = require('../database.js');
 module.exports = async (ctx) => {
   const user = await User.findOne({id: ctx.from.id});
   if (!user) {
@@ -8,7 +8,7 @@ module.exports = async (ctx) => {
       firstname: ctx.from.first_name,
 
     });
-    user.save();
+    await user.save();
     const answer = ctx.i18n.t('newChatMembers', {
       user: ctx.from.first_name,
       chat: ctx.chat.title,

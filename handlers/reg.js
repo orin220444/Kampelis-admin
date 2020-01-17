@@ -1,4 +1,4 @@
-const {User} = require('./database.js');
+const {User} = require('../database.js');
 module.exports = async (ctx) => {
   const user = await User.findOne({id: ctx.from.id});
 

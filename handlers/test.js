@@ -1,4 +1,4 @@
-const {version} = require('./package.json');
+const {version} = require('../package.json');
 module.exports = (ctx) => {
   const answer = ctx.i18n.t('test', {
     user: ctx.from.first_name,
