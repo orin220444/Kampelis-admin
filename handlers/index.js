@@ -9,8 +9,9 @@ const handleKick = require('./kick');
 const handleShrug = require('./shrug');
 const handleReg = require('./reg');
 const handleChecker = require('./checker');
-const handleSetRules = require ('./setrules')
-const handleRules = require('./rules')
+const handleSetRules = require ('./setrules');
+const handleRules = require('./rules');
+const handlePidor = require('./pidor');
 module.exports = {
   handleWelcome,
   handleBan,
@@ -25,4 +26,5 @@ module.exports = {
   handleChecker,
   handleSetRules,
   handleRules,
+  handlePidor,
 };

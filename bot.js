@@ -22,10 +22,11 @@ const {
   handleChecker,
   handleSetRules,
   handleRules,
+  handlePidor,
 } = require('./handlers');
 bot.use(i18n.middleware());
 /*
-TODO: pidor of the day
+TODO: pidor of the day: test
 TODO: change ctx.* to db vars: test
 TODO: .catch: test
 TODO: reply: test
@@ -44,6 +45,7 @@ bot.command('reg', handleReg);
 bot.command('shrug', handleShrug);
 bot.command('rules', handleRules);
 bot.command('setrules', handleSetRules);
+bot.command('pidor', handlePidor);
 bot.catch((error, ctx) => {
   console.log('Oops', error);
   ctx.telegram.sendMessage(process.env.CREATOR_ID, error);
