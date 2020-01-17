@@ -24,6 +24,6 @@
 
 - `/ban` - Ban member
 - `/unban` - Unban member
-- `/kick` - Kick member from chat (member will not be able to return)
+- `/kick` - Kick member from chat (member will be able to return)
 - `/f` - Salute
 - `/shrug` - send `¯\_(ツ)_/¯`

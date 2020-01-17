@@ -20,6 +20,7 @@ module.exports = async (ctx) => {
     ctx.reply(answer);
   } else {
     await ctx.telegram.kickChatMember(ctx.chat.id, kickUser.id);
+    await ctx.telegram.unbanChatMember(ctx.chat.id, kickUser.id);
     const answer = await ctx.i18n.t('userKicked', {
       user: kickUser.first_name,
       user_id: kickUser.id,
