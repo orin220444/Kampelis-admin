@@ -1,5 +1,9 @@
 module.exports = (ctx) => {
-  const answer = ctx.i18n.t('shrug');
-  ctx.reply(answer);
+  try {
+    const answer = ctx.i18n.t('shrug');
+    ctx.reply(answer);
+  } catch (error) {
+    console.log(error);
+  }
 };
 // TODO: regexp

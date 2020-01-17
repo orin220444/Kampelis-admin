@@ -11,23 +11,35 @@ module.exports = async (ctx) => {
    await banUser.status === 'creator' || 'administrator';
 
   if (isbanUserAnAdmin == true) {
-    const answer = ctx.i18n.t('banUserIsAnAdmin');
-    ctx.reply(answer);
+    try {
+      const answer = ctx.i18n.t('banUserIsAnAdmin');
+      ctx.reply(answer);
+    } catch (error) {
+      console.log(error);
+    }
   }
   if (ischatMemberAnAdmin == false) {
-    const answer = ctx.i18n.t('chatMemberIsNotAnAdmin');
-    ctx.reply(answer);
+    try {
+      const answer = ctx.i18n.t('chatMemberIsNotAnAdmin');
+      ctx.reply(answer);
+    } catch (error) {
+      console.log(error);
+    }
   } else {
-    await ctx.telegram.restrictChatMember(ctx.chat.id, banUser.id, {
-      can_send_messages: false,
-      can_send_other_messages: false,
-      can_send_media_messages: false,
-      can_add_web_page_previews: false,
-    });
-    const answer = await ctx.i18n.t('userBanned', {
-      user: banUser.first_name,
-      user_id: banUser.id,
-    });
-    await ctx.replyWithMarkdown(answer);
+    try {
+      await ctx.telegram.restrictChatMember(ctx.chat.id, banUser.id, {
+        can_send_messages: false,
+        can_send_other_messages: false,
+        can_send_media_messages: false,
+        can_add_web_page_previews: false,
+      });
+      const answer = await ctx.i18n.t('userBanned', {
+        user: banUser.first_name,
+        user_id: banUser.id,
+      });
+      await ctx.replyWithMarkdown(answer);
+    } catch (error) {
+      console.log(error);
+    }
   }
 };

@@ -12,19 +12,31 @@ module.exports = async (ctx) => {
 
 
   if (iskickUserAnAdmin == true) {
-    const answer = ctx.i18n.t('kickUserIsAnAdmin');
-    ctx.reply(answer);
+    try {
+      const answer = ctx.i18n.t('kickUserIsAnAdmin');
+      ctx.reply(answer);
+    } catch (error) {
+      console.log(error);
+    }
   }
   if (ischatMemberAnAdmin == false) {
-    const answer = ctx.i18n.t('chatMemberIsNotAnAdmin');
-    ctx.reply(answer);
+    try {
+      const answer = ctx.i18n.t('chatMemberIsNotAnAdmin');
+      ctx.reply(answer);
+    } catch (error) {
+      console.log(error);
+    }
   } else {
-    await ctx.telegram.kickChatMember(ctx.chat.id, kickUser.id);
-    await ctx.telegram.unbanChatMember(ctx.chat.id, kickUser.id);
-    const answer = await ctx.i18n.t('userKicked', {
-      user: kickUser.first_name,
-      user_id: kickUser.id,
-    });
-    await ctx.replyWithMarkdown(answer);
+    try {
+      await ctx.telegram.kickChatMember(ctx.chat.id, kickUser.id);
+      await ctx.telegram.unbanChatMember(ctx.chat.id, kickUser.id);
+      const answer = await ctx.i18n.t('userKicked', {
+        user: kickUser.first_name,
+        user_id: kickUser.id,
+      });
+      await ctx.replyWithMarkdown(answer);
+    } catch (error) {
+      console.log(error);
+    }
   }
 };
