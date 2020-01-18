@@ -1,6 +1,6 @@
 {
   "name": "adminchatbot",
-  "version": "0.4.1",
+  "version": "1.0.0",
   "description": "Bot for administering chats on Node.js",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,7 @@
   "homepage": "https://gitlab.com/orin220444/adminchatbot#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "mongoose": "^5.8.7",
+    "mongoose": "^5.8.9",
     "path": "^0.12.7",
     "telegraf": "^3.35.0",
     "telegraf-i18n": "^6.6.0"

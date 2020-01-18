@@ -1,5 +1,27 @@
 # Changelog
 
+## v.1.0.0
+
+- Updated code base
+
+- Bot now replies to messages
+
+- New commands: `/rules`, `/setrules`
+
+- Bot now sends number of version on `/test`
+
+- Bot now checks new chat member in the database
+
+- Changelog in reverse order
+
+- Readme in English
+
+- Added catch blocks
+
+- added config/ to .gitignore
+
+- updated Mongoose to 5.8.9
+
 ## v.0.4.1
 
 - Checking the user for the presence in the database
