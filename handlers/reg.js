@@ -8,7 +8,6 @@ module.exports = async (ctx) => {
         username: ctx.from.username,
         id: ctx.from.id,
         firstname: ctx.from.first_name,
-
       });
       user.save();
       const answer = ctx.i18n.t('user.added');

@@ -19,21 +19,17 @@ const {
   handleKick,
   handleReg,
   handleShrug,
-  handleChecker,
+  // handleChecker,
   handleSetRules,
   handleRules,
-  handlePidor,
+  // handlePidor,
 } = require('./handlers');
 bot.use(i18n.middleware());
 /*
-TODO: pidor of the day: test
-TODO: change ctx.* to db vars: test
-TODO: .catch: test
-TODO: reply: test
-TODO: rules: test
+TODO: create file or send rules and gifs to mongo
 */
 bot.on('new_chat_members', handleWelcome);
-bot.on('message', handleChecker);
+// bot.on('message', handleChecker);
 bot.command('help', handleHelp);
 bot.command('test', handleTest);
 bot.hears('gifid', handleGifID);
@@ -45,7 +41,7 @@ bot.command('reg', handleReg);
 bot.command('shrug', handleShrug);
 bot.command('rules', handleRules);
 bot.command('setrules', handleSetRules);
-bot.command('pidor', handlePidor);
+// bot.command('pidor', handlePidor);
 bot.catch((error, ctx) => {
   console.log('Oops', error);
   ctx.telegram.sendMessage(process.env.CREATOR_ID, error);

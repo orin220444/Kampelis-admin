@@ -22,7 +22,9 @@ module.exports = async (ctx) => {
         lastusername: user.username,
         newusername: ctx.from.username,
       });
-      await ctx.telegram.sendMessage(chat, answer, {parse_mode: 'MarkdownV2'});
+      await ctx.telegram.sendMessage(chat, answer,
+          {parse_mode: 'MarkdownV2'},
+      );
       user.username = await ctx.from.username;
       await user.save();
     } catch (error) {
@@ -36,7 +38,9 @@ module.exports = async (ctx) => {
         lastfirstname: user.firstname,
         newfirstname: ctx.from.first_name,
       });
-      await ctx.telegram.sendMessage(chat, answer, {parse_mode: 'MarkdownV2'});
+      await ctx.telegram.sendMessage(chat, answer,
+          {parse_mode: 'MarkdownV2'},
+      );
       user.firstrname = await ctx.from.first_name;
       await user.save();
     } catch (error) {
@@ -53,7 +57,9 @@ module.exports = async (ctx) => {
         newusername: ctx.from.username,
         newfirstname: ctx.from.first_name,
       });
-      ctx.telegram.sendMessage(chat, answer, {parse_mode: 'MarkdownV2'});
+      ctx.telegram.sendMessage(chat, answer,
+          {parse_mode: 'MarkdownV2'},
+      );
       user.username = await ctx.from.username;
       user.firstname = await ctx.from.first_name;
       await user.save();
@@ -62,3 +68,4 @@ module.exports = async (ctx) => {
     }
   }
 };
+// FIXME

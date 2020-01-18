@@ -1,10 +1,22 @@
-const rules = require('../config/rules.json');
-module.exports = (ctx) => {
-  const rule = rules/rule;
+const fs = require('fs');
+module.exports = async (ctx) => {
+  const rule = fs.readFileSync('./config/rules.txt', 'utf8');
   if (rule !== '') {
-    ctx.reply(rule, {reply_to_message_id: ctx.message.message_id});
+    try {
+      ctx.reply(rule,
+          {reply_to_message_id: ctx.message.message_id},
+      );
+    } catch (error) {
+      console.log(error);
+    }
   } else {
-    const answer = ctx.i18n.t('rule.err');
-    ctx.reply(answer, {reply_to_message_id: ctx.message.message_id});
+    try {
+      const answer = ctx.i18n.t('rule.err');
+      ctx.reply(answer,
+          {reply_to_message_id: ctx.message.message_id},
+      );
+    } catch (error) {
+      console.log(error);
+    }
   }
 };
