@@ -1,5 +1,9 @@
 # Changelog
 
+## v.1.0.1
+
+- Bug fixes and little improvements
+
 ## v.1.0.0
 
 - Updated code base
