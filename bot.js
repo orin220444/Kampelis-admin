@@ -42,11 +42,6 @@ bot.command('shrug', handleShrug);
 bot.command('rules', handleRules);
 bot.command('setrules', handleSetRules);
 // bot.command('pidor', handlePidor);
-bot.catch((error, ctx) => {
-  console.log('Oops', error);
-  ctx.telegram.sendMessage(process.env.CREATOR_ID, error);
-});
-
 bot.launch().then(() => {
   console.log(`bot started`);
 });
