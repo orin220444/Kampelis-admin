@@ -11,14 +11,18 @@ module.exports = async (ctx) => {
       });
       user.save();
       const answer = ctx.i18n.t('user.added');
-      ctx.reply(answer);
+      ctx.reply(answer,
+          {reply_to_message_id: ctx.message.message_id},
+      );
     } catch (error) {
       console.log(error);
     }
   };
   try {
     const answer = ctx.i18n.t('user.exists');
-    ctx.reply(answer);
+    ctx.reply(answer,
+        {reply_to_message_id: ctx.message.message_id},
+    );
   } catch (error) {
     console.log(error);
   }

@@ -13,8 +13,9 @@ module.exports = (ctx) => {
   } catch (error) {
     console.log(error);
   }
-  setTimeout(() => {
+  /* setTimeout(() => {
     // FIXME: autodeleting
     ctx.deleteMessage(ctx.message.message_id);
   }, 5 * 1000);
+  */
 };

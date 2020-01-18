@@ -14,7 +14,9 @@ module.exports = async (ctx) => {
   if (isunbanUserAnAdmin == true) {
     try {
       const answer = ctx.i18n.t('unbanUserIsAnAdmin');
-      ctx.reply(answer);
+      ctx.reply(answer,
+          {reply_to_message_id: ctx.message.message_id},
+      );
     } catch (error) {
       console.log(error);
     }
@@ -22,7 +24,9 @@ module.exports = async (ctx) => {
   if (ischatMemberAnAdmin == false) {
     try {
       const answer = ctx.i18n.t('chatMemberIsNotAnAdmin');
-      ctx.reply(answer);
+      ctx.reply(answer,
+          {reply_to_message_id: ctx.message.message_id},
+      );
     } catch (error) {
       console.log(error);
     }
@@ -38,7 +42,9 @@ module.exports = async (ctx) => {
         user: ctx.message.reply_to_message.from.first_name,
         user_id: unBanUser.id,
       });
-      await ctx.replyWithMarkdown(answer);
+      await ctx.replyWithMarkdown(answer,
+          {reply_to_message_id: ctx.message.message_id},
+      );
     } catch (error) {
       console.log(error);
     }

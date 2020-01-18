@@ -14,7 +14,8 @@ module.exports = async (ctx) => {
   if (iskickUserAnAdmin == true) {
     try {
       const answer = ctx.i18n.t('kickUserIsAnAdmin');
-      ctx.reply(answer);
+      ctx.reply(answer, {reply_to_message_id: ctx.message.message_id},
+      );
     } catch (error) {
       console.log(error);
     }
@@ -22,7 +23,8 @@ module.exports = async (ctx) => {
   if (ischatMemberAnAdmin == false) {
     try {
       const answer = ctx.i18n.t('chatMemberIsNotAnAdmin');
-      ctx.reply(answer);
+      ctx.reply(answer, {reply_to_message_id: ctx.message.message_id},
+      );
     } catch (error) {
       console.log(error);
     }
@@ -34,7 +36,9 @@ module.exports = async (ctx) => {
         user: kickUser.first_name,
         user_id: kickUser.id,
       });
-      await ctx.replyWithMarkdown(answer);
+      await ctx.replyWithMarkdown(answer,
+          {reply_to_message_id: ctx.message.message_id},
+      );
     } catch (error) {
       console.log(error);
     }

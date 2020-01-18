@@ -13,7 +13,9 @@ module.exports = async (ctx) => {
   if (isbanUserAnAdmin == true) {
     try {
       const answer = ctx.i18n.t('banUserIsAnAdmin');
-      ctx.reply(answer);
+      ctx.reply(answer,
+          {reply_to_message_id: ctx.message.message_id},
+      );
     } catch (error) {
       console.log(error);
     }
@@ -21,7 +23,9 @@ module.exports = async (ctx) => {
   if (ischatMemberAnAdmin == false) {
     try {
       const answer = ctx.i18n.t('chatMemberIsNotAnAdmin');
-      ctx.reply(answer);
+      ctx.reply(answer,
+          {reply_to_message_id: ctx.message.message_id},
+      );
     } catch (error) {
       console.log(error);
     }
