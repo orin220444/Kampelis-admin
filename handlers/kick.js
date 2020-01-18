@@ -17,7 +17,10 @@ module.exports = async (ctx) => {
       ctx.reply(answer, {reply_to_message_id: ctx.message.message_id},
       );
     } catch (error) {
-      console.log(error);
+      const answer = ctx.i18n.t('error', {error: error});
+      ctx.replyWithMarkdown(answer,
+          {reply_to_message_id: ctx.message.message_id},
+      );
     }
   }
   if (ischatMemberAnAdmin == false) {
@@ -26,7 +29,10 @@ module.exports = async (ctx) => {
       ctx.reply(answer, {reply_to_message_id: ctx.message.message_id},
       );
     } catch (error) {
-      console.log(error);
+      const answer = ctx.i18n.t('error', {error: error});
+      ctx.replyWithMarkdown(answer,
+          {reply_to_message_id: ctx.message.message_id},
+      );
     }
   } else {
     try {
@@ -40,7 +46,10 @@ module.exports = async (ctx) => {
           {reply_to_message_id: ctx.message.message_id},
       );
     } catch (error) {
-      console.log(error);
+      const answer = ctx.i18n.t('error', {error: error});
+      ctx.replyWithMarkdown(answer,
+          {reply_to_message_id: ctx.message.message_id},
+      );
     }
   }
 };
