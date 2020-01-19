@@ -13,7 +13,7 @@ user:
   added: |
     Вы успешно зарегистрировались!
   exists: | 
-    Вы зарегистрированы!
+    Вы уже были зарегистрированы!
   update: 
     username: |
       Пользователь [id]\(tg://user?id=${user_id}\) сменил юзернейм с ${lastusername} на ${newusername}
@@ -21,8 +21,10 @@ user:
       Пользователь [id]\(tg://user?id=${user_id}\) сменил ферстнейм с ${lastfirstname} на ${newfirstname}
     bothnames: |
       Пользователь [id]\(tg://user?id=${user_id}\) сменил юзернейм с ${lastusername} на ${newusername}
-       и ферстнейм с ${lastfirstname} на ${newfirstname}
-
+      и ферстнейм с ${lastfirstname} на ${newfirstname}
+group: 
+  added: чат добавлен!
+  exists: чат уже есть!
 error: Чет не работает *${error}* 
 rule:
     err: в чате нет правил!
