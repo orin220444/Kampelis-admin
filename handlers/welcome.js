@@ -1,6 +1,7 @@
-const {User} = require('../database.js');
+const {User, Group} = require('../database.js');
 module.exports = async (ctx) => {
   const user = await User.findOne({id: ctx.from.id});
+  const group = await Group.findOne({group_id: ctx.chat.id});
   if (!user) {
     try {
       const user = await User.create({
@@ -15,14 +16,15 @@ module.exports = async (ctx) => {
           {reply_to_message_id: ctx.message.message_id},
       );
     }
+  }
+  if (!group) {
     try {
-      const answer = ctx.i18n.t('newChatMembers', {
-        user: user.firstname,
-        chat: ctx.chat.title,
-        user_id: user.id,
+      const group = await Group.create({
+        group_id: ctx.chat.id,
+        title: ctx.chat.title,
+
       });
-      ctx.replyWithMarkdown(answer,
-          {reply_to_message_id: ctx.message.message_id});
+      await group.save();
     } catch (error) {
       const answer = ctx.i18n.t('error', {error: error});
       ctx.replyWithMarkdown(answer,

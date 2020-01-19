@@ -25,6 +25,7 @@ user:
 group: 
   added: чат добавлен!
   exists: чат уже есть!
+  notfound: Для начала пропишите /reg
 error: Чет не работает *${error}* 
 rule:
     err: в чате нет правил!
