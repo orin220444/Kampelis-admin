@@ -12,7 +12,10 @@ module.exports = async (ctx) => {
       });
       user.save();
     } catch (error) {
-      console.log(error);
+      const answer = ctx.i18n.t('error', {error: error});
+      ctx.replyWithMarkdown(answer,
+          {reply_to_message_id: ctx.message.message_id},
+      );
     }
   }
   if (user.username !== ctx.from.username) {
@@ -28,7 +31,10 @@ module.exports = async (ctx) => {
       user.username = await ctx.from.username;
       await user.save();
     } catch (error) {
-      console.log(error);
+      const answer = ctx.i18n.t('error', {error: error});
+      ctx.replyWithMarkdown(answer,
+          {reply_to_message_id: ctx.message.message_id},
+      );
     }
   }
   if (user.firstname !== ctx.from.first_name) {
@@ -44,7 +50,10 @@ module.exports = async (ctx) => {
       user.firstrname = await ctx.from.first_name;
       await user.save();
     } catch (error) {
-      console.log(error);
+      const answer = ctx.i18n.t('error', {error: error});
+      ctx.replyWithMarkdown(answer,
+          {reply_to_message_id: ctx.message.message_id},
+      );
     }
   }
   if (user.username !== ctx.from.username &
@@ -64,7 +73,10 @@ module.exports = async (ctx) => {
       user.firstname = await ctx.from.first_name;
       await user.save();
     } catch (error) {
-      console.log(error);
+      const answer = ctx.i18n.t('error', {error: error});
+      ctx.replyWithMarkdown(answer,
+          {reply_to_message_id: ctx.message.message_id},
+      );
     }
   }
 };

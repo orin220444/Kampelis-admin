@@ -17,17 +17,11 @@ module.exports = async (ctx) => {
           {reply_to_message_id: ctx.message.message_id},
       );
     } catch (error) {
-      console.log(error);
-    }
-  } else {
-    try {
-      const answer = ctx.i18n.t('error');
-      ctx.reply(answer,
+      const answer = ctx.i18n.t('error', {error: error});
+      ctx.replyWithMarkdown(answer,
           {reply_to_message_id: ctx.message.message_id},
       );
-      console.log(error);
-    } catch (error) {
-      console.log(error);
-    };
+    }
   }
 };
+// TODO: check for the admin

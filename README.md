@@ -27,3 +27,5 @@
 - `/kick` - Kick member from chat (member will be able to return)
 - `/f` - Salute
 - `/shrug` - send `¯\_(ツ)_/¯`
+- `/rules` - read rules
+- `/setrules` - set rules

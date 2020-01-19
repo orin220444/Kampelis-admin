@@ -1,6 +1,6 @@
 {
   "name": "adminchatbot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Bot for administering chats on Node.js",
   "main": "index.js",
   "scripts": {

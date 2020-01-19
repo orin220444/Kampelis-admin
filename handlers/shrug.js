@@ -5,7 +5,10 @@ module.exports = (ctx) => {
         {reply_to_message_id: ctx.message.message_id},
     );
   } catch (error) {
-    console.log(error);
+    const answer = ctx.i18n.t('error', {error: error});
+    ctx.replyWithMarkdown(answer,
+        {reply_to_message_id: ctx.message.message_id},
+    );
   }
 };
 // TODO: regexp
