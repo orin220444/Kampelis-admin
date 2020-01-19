@@ -1,6 +1,7 @@
-const fs = require('fs');
+const {Group} = require('../database');
 module.exports = async (ctx) => {
-  const rule = fs.readFileSync('./config/rules.txt', 'utf8');
+  const group = await Group.findOne({group_id: ctx.chat.id});
+  const rule = group.rules;
   if (rule !== '') {
     try {
       ctx.reply(rule,

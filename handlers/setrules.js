@@ -1,5 +1,6 @@
-const fs = require('fs');
+const {Group} = require('../database');
 module.exports = async (ctx) => {
+  const group = await Group.findOne({group_id: ctx.chat.id});
   if (!ctx.message.reply_to_message) {
     const answer = ctx.i18n.t('setrule.err');
     ctx.reply(answer,
@@ -7,11 +8,8 @@ module.exports = async (ctx) => {
   }
   if (ctx.message.reply_to_message) {
     try {
-      console.log(ctx.message.reply_to_message.text);
-      const data = `${ctx.message.reply_to_message.text}`;
-      fs.writeFile('./config/rules.txt', data, function(err) {
-        if (err) throw err;
-      });
+      group.rules = await ctx.message.reply_to_message.text;
+      await group.save();
       const answer = ctx.i18n.t('setrule.suc');
       await ctx.reply(answer,
           {reply_to_message_id: ctx.message.message_id},
