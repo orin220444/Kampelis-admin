@@ -1,4 +1,4 @@
-# Bot for administering telegram chats on Node.js
+# ![Kampelis Admin](./header.png)
 
 ## Bot can
 
