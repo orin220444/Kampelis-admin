@@ -25,8 +25,8 @@ const groupSchema = new Schema({
     default: '',
   },
   gifs: {
-    type: String,
-    default: '',
+    type: Array,
+    default: [],
   },
   title: String,
 });
