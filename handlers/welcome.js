@@ -31,16 +31,19 @@ module.exports = async (ctx) => {
           {reply_to_message_id: ctx.message.message_id},
       );
     }
-  } else {
-    try {
-      const answer = ctx.i18n.t('returnedChatMembers', {
-        user: user.firstname,
-        chat: ctx.chat.title,
-        user_id: user.id,
-      });
-      ctx.replyWithMarkdown(answer,
-          {reply_to_message_id: ctx.message.message_id});
-    } catch (error) {
-    }
+  }
+  try {
+    const answer = ctx.i18n.t('newChatMembers', {
+      user: user.firstname,
+      chat: group.title,
+      user_id: user.id,
+    });
+    ctx.replyWithMarkdown(answer,
+        {reply_to_message_id: ctx.message.message_id});
+  } catch (error) {
+    const answer = ctx.i18n.t('error', {error: error});
+    ctx.replyWithMarkdown(answer,
+        {reply_to_message_id: ctx.message.message_id},
+    );
   }
 };
