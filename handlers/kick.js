@@ -14,7 +14,10 @@ module.exports = async (ctx) => {
     await chatMember.status === 'creator' || 'administrator';
     const iskickUserAnAdmin =
     await kickUser.status === 'creator' || 'administrator';
-
+    console.log(kickUser.status);
+    console.log(kickUser);
+    console.log(chatMember.status);
+    console.log(chatMember);
     if (iskickUserAnAdmin == true) {
       try {
         const answer = ctx.i18n.t('kickUserIsAnAdmin');
@@ -43,8 +46,8 @@ module.exports = async (ctx) => {
         await ctx.telegram.kickChatMember(ctx.chat.id, kickUser.user.id);
         await ctx.telegram.unbanChatMember(ctx.chat.id, kickUser.user.id);
         const answer = await ctx.i18n.t('userKicked', {
-          user: kickUser.first_name,
-          user_id: kickUser.id,
+          user: kickUser.user.first_name,
+          user_id: kickUser.user.id,
         });
         await ctx.replyWithMarkdown(answer,
             {reply_to_message_id: ctx.message.message_id},

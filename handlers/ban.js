@@ -14,6 +14,10 @@ module.exports = async (ctx) => {
    await chatMember.status === 'creator' || 'administrator';
     const isbanUserAnAdmin =
    await banUser.status === 'creator' || 'administrator';
+    console.log(kickUser.status);
+    console.log(kickUser);
+    console.log(chatMember.status);
+    console.log(chatMember);
 
     if (isbanUserAnAdmin == true) {
       try {
@@ -49,8 +53,8 @@ module.exports = async (ctx) => {
           can_add_web_page_previews: false,
         });
         const answer = await ctx.i18n.t('userBanned', {
-          user: banUser.first_name,
-          user_id: banUser.id,
+          user: banUser.user.first_name,
+          user_id: banUser.user.id,
         });
         await ctx.replyWithMarkdown(answer);
       } catch (error) {
@@ -62,3 +66,4 @@ module.exports = async (ctx) => {
     }
   };
 };
+// FIXME: user can ban/kick/unban
