@@ -27,12 +27,13 @@ const {
 bot.use(i18n.middleware());
 /*
 TODO: create file or send rules and gifs to mongo
+TODO: @admin
 */
 bot.on('new_chat_members', handleWelcome);
 // bot.on('message', handleChecker);
 bot.command('help', handleHelp);
 bot.command('test', handleTest);
-bot.hears('gifid', handleGifID);
+bot.command('gifid', handleGifID);
 bot.command('f', handleF);
 bot.command('ban', handleBan);
 bot.command('unban', handleUnban);
