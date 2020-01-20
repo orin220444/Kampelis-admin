@@ -1,7 +1,7 @@
-const gifs = require('../config/files.json');
+const files = require('../config/files.json');
 module.exports = (ctx) => {
   try {
-    const gif = gifs.f;
+    const gif = files.f;
     const randomGif = gif[Math.floor(Math.random() * gif.length)];
     ctx.replyWithDocument(randomGif,
         {reply_to_message_id: ctx.message.message_id},
