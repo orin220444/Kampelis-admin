@@ -4,8 +4,6 @@
 
 - Respond to the arrival of new members to the chat
 
-- Notify when chat member changes username
-
 - To ban and kick chat members
 
 - Salute
