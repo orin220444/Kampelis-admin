@@ -4,4 +4,3 @@ config/
 .env
 *code-workspace
 .eslintrc*
-config/rules.txt
