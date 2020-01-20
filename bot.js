@@ -26,7 +26,6 @@ const {
 } = require('./handlers');
 bot.use(i18n.middleware());
 /*
-TODO: create file or send rules and gifs to mongo
 TODO: @admin
 */
 bot.on('new_chat_members', handleWelcome);
