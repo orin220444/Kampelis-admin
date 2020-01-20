@@ -15,9 +15,16 @@ module.exports = async (ctx) => {
     }
   } else {
     if (!ctx.message.reply_to_message) {
-      const answer = ctx.i18n.t('setrule.err');
-      ctx.reply(answer,
-          {reply_to_message_id: ctx.message.message_id});
+      try {
+        const answer = ctx.i18n.t('setrule.err');
+        ctx.reply(answer,
+            {reply_to_message_id: ctx.message.message_id});
+      } catch (error) {
+        const answer = ctx.i18n.t('error', {error: error});
+        ctx.replyWithMarkdown(answer,
+            {reply_to_message_id: ctx.message.message_id},
+        );
+      }
     }
     if (ctx.message.reply_to_message) {
       try {
@@ -36,4 +43,4 @@ module.exports = async (ctx) => {
     }
   };
 };
-// TODO: check for the admin
+// FIXME: check for the admin
