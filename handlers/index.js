@@ -8,7 +8,6 @@ const handleGifID = require('./gifid');
 const handleKick = require('./kick');
 const handleShrug = require('./shrug');
 const handleReg = require('./reg');
-const handleChecker = require('./checker');
 const handleSetRules = require('./setrules');
 const handleRules = require('./rules');
 const handleDurka = require('./durka');
@@ -24,10 +23,8 @@ module.exports = {
   handleKick,
   handleReg,
   handleShrug,
-  handleChecker,
   handleSetRules,
   handleRules,
-  handlePidor,
   handleStickerID,
   handleDurka,
 };

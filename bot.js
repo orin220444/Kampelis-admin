@@ -19,7 +19,6 @@ const {
   handleKick,
   handleReg,
   handleShrug,
-  // handleChecker,
   handleSetRules,
   handleRules,
   handleDurka,
@@ -31,7 +30,6 @@ TODO: create file or send rules and gifs to mongo
 TODO: @admin
 */
 bot.on('new_chat_members', handleWelcome);
-// bot.on('message', handleChecker);
 bot.command('help', handleHelp);
 bot.command('test', handleTest);
 bot.command('gifid', handleGifID);
@@ -45,8 +43,6 @@ bot.command('rules', handleRules);
 bot.command('setrules', handleSetRules);
 bot.command('stickerid', handleStickerID);
 bot.command('durka', handleDurka);
-
-// bot.command('pidor', handlePidor);
 bot.launch().then(() => {
   console.log(`bot started`);
 });
