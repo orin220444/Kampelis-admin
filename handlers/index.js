@@ -11,7 +11,6 @@ const handleReg = require('./reg');
 const handleChecker = require('./checker');
 const handleSetRules = require('./setrules');
 const handleRules = require('./rules');
-const handlePidor = require('./pidor');
 const handleDurka = require('./durka');
 const handleStickerID = require('./stickerid');
 module.exports = {

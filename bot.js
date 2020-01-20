@@ -22,7 +22,6 @@ const {
   // handleChecker,
   handleSetRules,
   handleRules,
-  // handlePidor,
   handleDurka,
   handleStickerID,
 } = require('./handlers');
