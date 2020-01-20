@@ -16,7 +16,7 @@ module.exports = async (ctx) => {
    await unBanUser.status === 'creator' || 'administrator';
 
 
-    if (isunbanUserAnAdmin == true) {
+    if (isunbanUserAnAdmin) {
       try {
         const answer = ctx.i18n.t('unbanUserIsAnAdmin');
         ctx.reply(answer,
@@ -29,7 +29,7 @@ module.exports = async (ctx) => {
         );
       }
     }
-    if (ischatMemberAnAdmin == false) {
+    if (!ischatMemberAnAdmin) {
       try {
         const answer = ctx.i18n.t('chatMemberIsNotAnAdmin');
         ctx.reply(answer,

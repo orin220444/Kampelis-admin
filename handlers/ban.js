@@ -19,7 +19,7 @@ module.exports = async (ctx) => {
     console.log(chatMember.status);
     console.log(chatMember);
 
-    if (isbanUserAnAdmin == true) {
+    if (isbanUserAnAdmin) {
       try {
         const answer = ctx.i18n.t('banUserIsAnAdmin');
         ctx.reply(answer,
@@ -32,7 +32,7 @@ module.exports = async (ctx) => {
         );
       }
     }
-    if (ischatMemberAnAdmin == false) {
+    if (!ischatMemberAnAdmin) {
       try {
         const answer = ctx.i18n.t('chatMemberIsNotAnAdmin');
         ctx.reply(answer,
@@ -66,4 +66,4 @@ module.exports = async (ctx) => {
     }
   };
 };
-// FIXME: user can ban/kick/unban
+

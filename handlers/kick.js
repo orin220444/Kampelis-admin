@@ -18,7 +18,7 @@ module.exports = async (ctx) => {
     console.log(kickUser);
     console.log(chatMember.status);
     console.log(chatMember);
-    if (iskickUserAnAdmin == true) {
+    if (iskickUserAnAdmin) {
       try {
         const answer = ctx.i18n.t('kickUserIsAnAdmin');
         ctx.reply(answer, {reply_to_message_id: ctx.message.message_id},
@@ -30,7 +30,7 @@ module.exports = async (ctx) => {
         );
       }
     }
-    if (ischatMemberAnAdmin == false) {
+    if (!ischatMemberAnAdmin) {
       try {
         const answer = ctx.i18n.t('chatMemberIsNotAnAdmin');
         ctx.reply(answer, {reply_to_message_id: ctx.message.message_id},
