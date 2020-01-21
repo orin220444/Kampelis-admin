@@ -34,8 +34,8 @@ module.exports = async (ctx) => {
   }
   try {
     const answer = ctx.i18n.t('newChatMembers', {
-      user: user.firstname,
-      chat: group.title,
+      user: ctx.from.first_name,
+      chat: ctx.chat.title,
       user_id: user.id,
     });
     ctx.replyWithMarkdown(answer,
