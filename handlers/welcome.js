@@ -5,7 +5,7 @@ module.exports = async (ctx) => {
     ctx.reply(answer,
         {reply_to_message_id: ctx.message.message_id});
   } else {
-    const user = await User.findOne({id: ctx.new_chat_member.id});
+    const user = await User.findOne({id: ctx.message.new_chat_member.id});
     const group = await Group.findOne({group_id: ctx.chat.id});
 
     if (!user) {
