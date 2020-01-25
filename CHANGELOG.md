@@ -1,5 +1,19 @@
 # Changelog
 
+## v.1.1.0
+
+- Telegraf updated to 3.36.0
+
+- kick, setrules, ban, unban was rewritten using switch
+
+- bot now checks is bot a new chat member
+
+- deleted handlers `/pidor` and checker
+
+- added command `/durka`
+
+- bug fixes and little improvements
+
 ## v.1.0.1
 
 - Bug fixes and little improvements
