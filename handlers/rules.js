@@ -1,9 +1,11 @@
-const fs = require('fs');
+const {Group} = require('../database');
 module.exports = async (ctx) => {
-  const rule = fs.readFileSync('./config/rules.txt', 'utf8');
-  if (rule !== '') {
+  const group = await Group.findOne({group_id: ctx.chat.id});
+  const rule = group.rules;
+  if (!group) {
     try {
-      ctx.reply(rule,
+      const answer = ctx.i18n.t('group.notfound');
+      ctx.replyWithMarkdown(answer,
           {reply_to_message_id: ctx.message.message_id},
       );
     } catch (error) {
@@ -13,16 +15,29 @@ module.exports = async (ctx) => {
       );
     }
   } else {
-    try {
-      const answer = ctx.i18n.t('rule.err');
-      ctx.reply(answer,
-          {reply_to_message_id: ctx.message.message_id},
-      );
-    } catch (error) {
-      const answer = ctx.i18n.t('error', {error: error});
-      ctx.replyWithMarkdown(answer,
-          {reply_to_message_id: ctx.message.message_id},
-      );
+    if (rule !== '') {
+      try {
+        ctx.reply(rule,
+            {reply_to_message_id: ctx.message.message_id},
+        );
+      } catch (error) {
+        const answer = ctx.i18n.t('error', {error: error});
+        ctx.replyWithMarkdown(answer,
+            {reply_to_message_id: ctx.message.message_id},
+        );
+      }
+    } else {
+      try {
+        const answer = ctx.i18n.t('rule.err');
+        ctx.reply(answer,
+            {reply_to_message_id: ctx.message.message_id},
+        );
+      } catch (error) {
+        const answer = ctx.i18n.t('error', {error: error});
+        ctx.replyWithMarkdown(answer,
+            {reply_to_message_id: ctx.message.message_id},
+        );
+      }
     }
-  }
+  };
 };

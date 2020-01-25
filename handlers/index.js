@@ -8,10 +8,10 @@ const handleGifID = require('./gifid');
 const handleKick = require('./kick');
 const handleShrug = require('./shrug');
 const handleReg = require('./reg');
-const handleChecker = require('./checker');
 const handleSetRules = require('./setrules');
 const handleRules = require('./rules');
-const handlePidor = require('./pidor');
+const handleDurka = require('./durka');
+const handleStickerID = require('./stickerid');
 module.exports = {
   handleWelcome,
   handleBan,
@@ -23,8 +23,8 @@ module.exports = {
   handleKick,
   handleReg,
   handleShrug,
-  handleChecker,
   handleSetRules,
   handleRules,
-  handlePidor,
+  handleStickerID,
+  handleDurka,
 };

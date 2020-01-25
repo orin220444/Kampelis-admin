@@ -1,10 +1,8 @@
-# Bot for administering telegram chats on Node.js
+# ![Kampelis Admin](./header.png)
 
 ## Bot can
 
 - Respond to the arrival of new members to the chat
-
-- Notify when chat member changes username
 
 - To ban and kick chat members
 

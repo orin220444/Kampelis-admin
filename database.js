@@ -13,7 +13,26 @@ const userSchema = new Schema({
   },
   firstname: String,
 });
+const groupSchema = new Schema({
+  group_id: {
+    type: Number,
+    index: true,
+    unique: true,
+    required: true,
+  },
+  rules: {
+    type: String,
+    default: '',
+  },
+  gifs: {
+    type: Array,
+    default: [],
+  },
+  title: String,
+});
+const Group = mongoose.model('Group', groupSchema);
 const User = mongoose.model('User', userSchema);
 module.exports = {
   User,
+  Group,
 };

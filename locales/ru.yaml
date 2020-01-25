@@ -1,4 +1,5 @@
 newChatMembers: Приветствую тебя, [${user}](tg://user?id=${user_id}) в чате ${chat}
+newChatMemberisbot: Добавлен бот. надеюсь, вы знаете, что делаете
 returnedChatMembers: С возвращением, [${user}](tg://user?id=${user_id}) в чат ${chat}
 banUserIsAnAdmin: Кхмм, заблокировать администратора? интересно...
 unbanUserIsAnAdmin: Кхмм, разблокировать администратора? интересно...
@@ -13,32 +14,30 @@ user:
   added: |
     Вы успешно зарегистрировались!
   exists: | 
-    Вы зарегистрированы!
-  update: 
-    username: |
-      Пользователь [id]\(tg://user?id=${user_id}\) сменил юзернейм с ${lastusername} на ${newusername}
-    firstname: |
-      Пользователь [id]\(tg://user?id=${user_id}\) сменил ферстнейм с ${lastfirstname} на ${newfirstname}
-    bothnames: |
-      Пользователь [id]\(tg://user?id=${user_id}\) сменил юзернейм с ${lastusername} на ${newusername}
-       и ферстнейм с ${lastfirstname} на ${newfirstname}
-
+    Вы уже были зарегистрированы!
+group: 
+  added: чат добавлен!
+  exists: чат уже есть!
+  notfound: Для начала пропишите /reg
 error: Чет не работает *${error}* 
 rule:
     err: в чате нет правил!
 setrule:
     suc: готово!
     err: реплайните сообщение с правилами, чтобы я его запомнил!
+    notanadmin: Вы не администратор!
 help: |
-  Введите /f чтобы отдать честь
+  Основные команды:
+  /f чтобы отдать честь
   /shrug чтобы отправить ¯\_(ツ)_/¯
+  /durka - не нуждается в объяснении
   /rules чтобы проверить правила
-  и /reg чтобы зарегистрироваться в базе данных
+  /reg чтобы зарегистрироваться в базе данных
   Админ тулз:
     /ban чтобы забанить пользователя,
     /unban чтобы разбанить
     /setrules чтобы установить правила
-    и /kick чтобы кикнуть без возможности возвращения
+    и /kick чтобы кикнуть
 kickUserIsAnAdmin: Кхмм, кикнуть администратора? интересно...
 test: |
   Тест, 
@@ -46,5 +45,3 @@ test: |
   *Вы находитесь в чате* ${chat}
   *Версия* ${version}
 shrug: ¯\_(ツ)_/¯
-pidor:
-    found: Сегодня пидор дня *${pidor}*
