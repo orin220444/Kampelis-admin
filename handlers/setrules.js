@@ -22,38 +22,46 @@ await chatMember.status === 'creator' || 'administrator';
   } else {
     console.log(chatMember);
     console.log(ischatMemberAnAdmin);
-    const a = false;
-    try {
-      let answer = '';
-      switch (a) {
-        case ctx.message.reply_to_message:
-
-          answer = ctx.i18n.t('setrule.err');
-          ctx.reply(answer,
-              {reply_to_message_id: ctx.message.message_id});
-          break;
-        case ischatMemberAnAdmin:
-          answer = ctx.i18n.t('setrule.notaadmin');
-          ctx.replyWithMarkdown(answer,
-              {reply_to_message_id: ctx.message.message_id},
-          );
-          break;
-        default:
-
+    if (!ctx.message.reply_to_message) {
+      try {
+        const answer = ctx.i18n.t('setrule.err');
+        ctx.reply(answer,
+            {reply_to_message_id: ctx.message.message_id});
+      } catch (error) {
+        const answer = ctx.i18n.t('error', {error: error});
+        ctx.replyWithMarkdown(answer,
+            {reply_to_message_id: ctx.message.message_id},
+        );
+      }
+    }
+    if (ischatMemberAnAdmin) {
+      if (ctx.message.reply_to_message) {
+        try {
           group.rules = await ctx.message.reply_to_message.text;
           await group.save();
-          answer = ctx.i18n.t('setrule.suc');
+          const answer = ctx.i18n.t('setrule.suc');
           await ctx.reply(answer,
               {reply_to_message_id: ctx.message.message_id},
           );
+        } catch (error) {
+          const answer = ctx.i18n.t('error', {error: error});
+          ctx.replyWithMarkdown(answer,
+              {reply_to_message_id: ctx.message.message_id},
+          );
+        }
+      } else {
+        try {
+          const answer = ctx.i18n.t('setrule.notaadmin');
+          ctx.replyWithMarkdown(answer,
+              {reply_to_message_id: ctx.message.message_id},
+          );
+        } catch (error) {
+          const answer = ctx.i18n.t('error', {error: error});
+          ctx.replyWithMarkdown(answer,
+              {reply_to_message_id: ctx.message.message_id},
+          );
+        }
       }
-    } catch (error) {
-      const answer = ctx.i18n.t('error', {error: error});
-      ctx.replyWithMarkdown(answer,
-          {reply_to_message_id: ctx.message.message_id},
-      );
     }
-  }
+  };
 };
-
-
