@@ -27,3 +27,7 @@
 - `/shrug` - send `¯\_(ツ)_/¯`
 - `/rules` - read rules
 - `/setrules` - set rules
+
+## License
+
+This project is issued under the [MIT license](./LICENSE).
