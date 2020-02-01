@@ -15,14 +15,12 @@ const {
   handleHelp,
   handleF,
   handleTest,
-  handleGifID,
   handleKick,
   handleReg,
   handleShrug,
   handleSetRules,
   handleRules,
   handleDurka,
-  handleStickerID,
 } = require('./handlers');
 bot.use(i18n.middleware());
 /*
@@ -31,7 +29,6 @@ TODO: @admin
 bot.on('new_chat_members', handleWelcome);
 bot.command('help', handleHelp);
 bot.command('test', handleTest);
-bot.command('gifid', handleGifID);
 bot.command('f', handleF);
 bot.command('ban', handleBan);
 bot.command('unban', handleUnban);
@@ -40,7 +37,6 @@ bot.command('reg', handleReg);
 bot.command('shrug', handleShrug);
 bot.command('rules', handleRules);
 bot.command('setrules', handleSetRules);
-bot.command('stickerid', handleStickerID);
 bot.command('durka', handleDurka);
 bot.launch().then(() => {
   console.log(`bot started`);

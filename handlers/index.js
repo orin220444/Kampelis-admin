@@ -4,14 +4,12 @@ const handleUnban = require('./unban');
 const handleHelp = require('./help');
 const handleF = require('./f');
 const handleTest = require('./test');
-const handleGifID = require('./gifid');
 const handleKick = require('./kick');
 const handleShrug = require('./shrug');
 const handleReg = require('./reg');
 const handleSetRules = require('./setrules');
 const handleRules = require('./rules');
 const handleDurka = require('./durka');
-const handleStickerID = require('./stickerid');
 module.exports = {
   handleWelcome,
   handleBan,
@@ -19,12 +17,10 @@ module.exports = {
   handleHelp,
   handleF,
   handleTest,
-  handleGifID,
   handleKick,
   handleReg,
   handleShrug,
   handleSetRules,
   handleRules,
-  handleStickerID,
   handleDurka,
 };
