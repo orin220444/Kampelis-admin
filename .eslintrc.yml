@@ -3,7 +3,7 @@ env:
   es6: true
   node: true
 extends:
-  - google
+  - airbnb-base
 globals:
   Atomics: readonly
   SharedArrayBuffer: readonly
