@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
+
 mongoose.connect(process.env.MONGODB_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-const Schema = mongoose.Schema;
+const { Schema } = mongoose;
 const userSchema = new Schema({
   username: String,
   id: {

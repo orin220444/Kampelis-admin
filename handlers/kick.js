@@ -2,18 +2,16 @@ module.exports = async (ctx) => {
   if (!ctx.message.reply_to_message) {
     const answer = ctx.i18n.t('nobodytokick');
     ctx.reply(answer,
-        {reply_to_message_id: ctx.message.message_id});
+      { reply_to_message_id: ctx.message.message_id });
   } else {
     const chatMember = await ctx.telegram.getChatMember(
-        ctx.message.chat.id, ctx.message.from.id,
+      ctx.message.chat.id, ctx.message.from.id,
     );
     const kickUser = await ctx.telegram.getChatMember(
-        ctx.chat.id, ctx.message.reply_to_message.from.id,
+      ctx.chat.id, ctx.message.reply_to_message.from.id,
     );
-    const ischatMemberAnAdmin =
-    await chatMember.status === 'creator' || 'administrator';
-    const iskickUserAnAdmin =
-    await kickUser.status === 'creator' || 'administrator';
+    const ischatMemberAnAdmin = await chatMember.status === 'creator' || 'administrator';
+    const iskickUserAnAdmin = await kickUser.status === 'creator' || 'administrator';
     console.log(kickUser.status);
     console.log(kickUser);
     console.log(chatMember.status);
@@ -21,25 +19,21 @@ module.exports = async (ctx) => {
     if (iskickUserAnAdmin) {
       try {
         const answer = ctx.i18n.t('kickUserIsAnAdmin');
-        ctx.reply(answer, {reply_to_message_id: ctx.message.message_id},
-        );
+        ctx.reply(answer, { reply_to_message_id: ctx.message.message_id });
       } catch (error) {
-        const answer = ctx.i18n.t('error', {error: error});
+        const answer = ctx.i18n.t('error', { error });
         ctx.replyWithMarkdown(answer,
-            {reply_to_message_id: ctx.message.message_id},
-        );
+          { reply_to_message_id: ctx.message.message_id });
       }
     }
     if (!ischatMemberAnAdmin) {
       try {
         const answer = ctx.i18n.t('chatMemberIsNotAnAdmin');
-        ctx.reply(answer, {reply_to_message_id: ctx.message.message_id},
-        );
+        ctx.reply(answer, { reply_to_message_id: ctx.message.message_id });
       } catch (error) {
-        const answer = ctx.i18n.t('error', {error: error});
+        const answer = ctx.i18n.t('error', { error });
         ctx.replyWithMarkdown(answer,
-            {reply_to_message_id: ctx.message.message_id},
-        );
+          { reply_to_message_id: ctx.message.message_id });
       }
     } else {
       try {
@@ -50,14 +44,12 @@ module.exports = async (ctx) => {
           user_id: kickUser.user.id,
         });
         await ctx.replyWithMarkdown(answer,
-            {reply_to_message_id: ctx.message.message_id},
-        );
+          { reply_to_message_id: ctx.message.message_id });
       } catch (error) {
-        const answer = ctx.i18n.t('error', {error: error});
+        const answer = ctx.i18n.t('error', { error });
         ctx.replyWithMarkdown(answer,
-            {reply_to_message_id: ctx.message.message_id},
-        );
+          { reply_to_message_id: ctx.message.message_id });
       }
     }
-  };
+  }
 };

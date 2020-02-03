@@ -1,7 +1,8 @@
 const Telegraf = require('telegraf');
 const I18n = require('telegraf-i18n');
 const path = require('path');
-require('dotenv').config({path: './.env'});
+require('dotenv').config({ path: './.env' });
+
 const bot = new Telegraf(process.env.BOT_TOKEN);
 const i18n = new I18n({
   directory: path.resolve(__dirname, 'locales'),
@@ -22,6 +23,7 @@ const {
   handleRules,
   handleDurka,
 } = require('./handlers');
+
 bot.use(i18n.middleware());
 /*
 TODO: @admin
@@ -38,6 +40,4 @@ bot.command('shrug', handleShrug);
 bot.command('rules', handleRules);
 bot.command('setrules', handleSetRules);
 bot.command('durka', handleDurka);
-bot.launch().then(() => {
-  console.log(`bot started`);
-});
+bot.launch();

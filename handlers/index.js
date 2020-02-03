@@ -10,6 +10,7 @@ const handleReg = require('./reg');
 const handleSetRules = require('./setrules');
 const handleRules = require('./rules');
 const handleDurka = require('./durka');
+
 module.exports = {
   handleWelcome,
   handleBan,
