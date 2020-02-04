@@ -7,7 +7,8 @@
     "dev": "npm run eslint && npm run nodemon",
     "start": "node index.js",
     "nodemon": "./node_modules/.bin/nodemon index.js",
-    "eslint": "./node_modules/.bin/eslint --fix --ext js ."
+    "eslint": "./node_modules/.bin/eslint --fix --ext js .",
+    "precommit": "lint-staged"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,20 @@
   "devDependencies": {
     "eslint": "^6.8.0",
     "eslint-config-google": "^0.14.0",
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "husky": "^4.2.1",
+    "lint-staged": "^10.0.7"
+  },
+  "lint-staged": {
+    "*.{js}": [
+      "node_modules/.bin/eslint --fix --max-warnings=0",
+      "node_modules/.bin/eslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }

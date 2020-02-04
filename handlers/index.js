@@ -10,7 +10,7 @@ const handleReg = require('./reg');
 const handleSetRules = require('./setrules');
 const handleRules = require('./rules');
 const handleDurka = require('./durka');
-const handleID = require('id');
+const handleID = require('./id');
 module.exports = {
   handleWelcome,
   handleBan,
@@ -24,5 +24,5 @@ module.exports = {
   handleSetRules,
   handleRules,
   handleDurka,
-  handleID
+  handleID,
 };
