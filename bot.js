@@ -21,6 +21,7 @@ const {
   handleSetRules,
   handleRules,
   handleDurka,
+  handleID
 } = require('./handlers');
 bot.use(i18n.middleware());
 /*
@@ -38,6 +39,7 @@ bot.command('shrug', handleShrug);
 bot.command('rules', handleRules);
 bot.command('setrules', handleSetRules);
 bot.command('durka', handleDurka);
+bot.command("id", handleID)
 bot.launch().then(() => {
   console.log(`bot started`);
 });
