@@ -1,6 +1,6 @@
 module.exports = async (ctx) => {
   if (!ctx.message.reply_to_message) {
-    const answer = ctx.i18n.t('nobodytounban');
+    const answer = ctx.i18n.t('unban.nobodytounban');
     ctx.reply(answer,
         {reply_to_message_id: ctx.message.message_id});
   } else {
@@ -18,7 +18,7 @@ module.exports = async (ctx) => {
 
     if (isunbanUserAnAdmin) {
       try {
-        const answer = ctx.i18n.t('unbanUserIsAnAdmin');
+        const answer = ctx.i18n.t('unban.UserIsAnAdmin');
         ctx.reply(answer,
             {reply_to_message_id: ctx.message.message_id},
         );
@@ -49,7 +49,7 @@ module.exports = async (ctx) => {
           can_send_media_messages: true,
           can_add_web_page_previews: true,
         });
-        const answer = await ctx.i18n.t('userUnBanned', {
+        const answer = await ctx.i18n.t('unban.suc', {
           user: ctx.message.reply_to_message.from.first_name,
           user_id: unBanUser.id,
         });

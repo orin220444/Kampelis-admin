@@ -1,6 +1,6 @@
 module.exports = async (ctx) => {
   if (!ctx.message.reply_to_message) {
-    const answer = ctx.i18n.t('nobodytoban');
+    const answer = ctx.i18n.t('ban.nobodytoban');
     ctx.reply(answer,
         {reply_to_message_id: ctx.message.message_id});
   } else {
@@ -21,7 +21,7 @@ module.exports = async (ctx) => {
 
     if (isbanUserAnAdmin) {
       try {
-        const answer = ctx.i18n.t('banUserIsAnAdmin');
+        const answer = ctx.i18n.t('ban.UserIsAnAdmin');
         ctx.reply(answer,
             {reply_to_message_id: ctx.message.message_id},
         );
@@ -52,7 +52,7 @@ module.exports = async (ctx) => {
           can_send_media_messages: false,
           can_add_web_page_previews: false,
         });
-        const answer = await ctx.i18n.t('userBanned', {
+        const answer = await ctx.i18n.t('ban.suc', {
           user: banUser.user.first_name,
           user_id: banUser.user.id,
         });
@@ -66,4 +66,3 @@ module.exports = async (ctx) => {
     }
   };
 };
-
