@@ -36,8 +36,13 @@
   },
   "lint-staged": {
     "*.{js}": [
-      "node_modules/.bin/eslint --max-warnings=0",
+      "node_modules/.bin/eslint --fix --max-warnings=0",
       "git add"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
