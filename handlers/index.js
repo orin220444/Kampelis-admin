@@ -11,6 +11,7 @@ const handleSetRules = require('./setrules');
 const handleRules = require('./rules');
 const handleDurka = require('./durka');
 const handleID = require('./id');
+const handleUser = require('./user');
 module.exports = {
   handleWelcome,
   handleBan,
@@ -25,4 +26,5 @@ module.exports = {
   handleRules,
   handleDurka,
   handleID,
+  handleUser,
 };
