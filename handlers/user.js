@@ -9,7 +9,7 @@ module.exports = async (ctx) => {
       ctx.replyWithMarkdown(answer);
     }
   } else {
-    const user = await User.findOne({id: ctx.from.id});
+    const user = await User.findOne({id: ctx.message.reply_to_message.from.id});
     if (!user) {
       try {
         const user = await User.create({
@@ -34,7 +34,8 @@ module.exports = async (ctx) => {
         ctx.reply(answer);
       } catch (error) {
         const answer = ctx.i18n.t('error', {error: error});
-        ctx.replyWithMarkdown(answer);
+        ctx.replyWithMarkdown(answer,
+            {reply_to_message_id: ctx.message.message_id});
       }
     }
   }
