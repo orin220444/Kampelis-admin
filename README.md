@@ -30,4 +30,4 @@
 
 ## License
 
-This project is issued under the [MIT license](./LICENSE).
+[MIT license](./LICENSE).

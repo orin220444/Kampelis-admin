@@ -42,7 +42,7 @@ module.exports = async (ctx) => {
       const answer = ctx.i18n.t('welcome.suc', {
         user: ctx.message.new_chat_member.first_name,
         chat: ctx.chat.title,
-        user_id: user.id,
+        user_id: ctx.message.new_chat_member.id,
       });
       ctx.replyWithMarkdown(answer,
           {reply_to_message_id: ctx.message.message_id});

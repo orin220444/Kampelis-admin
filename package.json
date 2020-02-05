@@ -1,5 +1,5 @@
 {
-  "name": "adminchatbot",
+  "name": "kampelis-admin",
   "version": "1.1.0",
   "description": "Bot for administering chats on Node.js",
   "main": "index.js",
@@ -36,8 +36,7 @@
   },
   "lint-staged": {
     "*.{js}": [
-      "node_modules/.bin/eslint --fix --max-warnings=0",
-      "git add"
+      "node_modules/.bin/eslint --fix --max-warnings=0"
     ]
   },
   "husky": {
