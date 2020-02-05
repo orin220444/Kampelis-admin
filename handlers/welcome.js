@@ -1,7 +1,7 @@
 const {User, Group} = require('../database.js');
 module.exports = async (ctx) => {
   if (ctx.message.new_chat_member.is_bot) {
-    const answer = ctx.i18n.t('newChatMemberisbot');
+    const answer = ctx.i18n.t('welcome.ChatMemberisbot');
     ctx.reply(answer,
         {reply_to_message_id: ctx.message.message_id});
   } else {
@@ -39,7 +39,7 @@ module.exports = async (ctx) => {
       }
     }
     try {
-      const answer = ctx.i18n.t('newChatMembers', {
+      const answer = ctx.i18n.t('welcome.suc', {
         user: ctx.message.new_chat_member.first_name,
         chat: ctx.chat.title,
         user_id: user.id,
