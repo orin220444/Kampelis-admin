@@ -1,4 +1,4 @@
-const {User} = require('../database.js');
+const {User} = require('../database');
 module.exports = async (ctx) => {
   if (!ctx.message.reply_to_message) {
     try {

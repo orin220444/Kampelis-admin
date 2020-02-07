@@ -1,4 +1,4 @@
-const {User, Group} = require('../database.js');
+const {User, Group} = require('../database');
 module.exports = async (ctx) => {
   if (ctx.message.new_chat_member.is_bot) {
     const answer = ctx.i18n.t('welcome.ChatMemberisbot');
