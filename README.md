@@ -8,6 +8,8 @@
 
 - Salute
 
+- Call on admins
+
 ## Installing
 
 1. Download Node.js [from official web page](https://nodejs.org/)
@@ -27,6 +29,7 @@
 - `/shrug` - send `¯\_(ツ)_/¯`
 - `/rules` - read rules
 - `/setrules` - set rules
+- `@admin` - call on admins
 
 ## License
 

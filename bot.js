@@ -23,11 +23,14 @@ const {
   handleDurka,
   handleID,
   handleUser,
+  handleAdmin,
 } = require('./handlers');
 bot.use(i18n.middleware());
 /*
-TODO: @admin
+TODO: settings
+TODO: scripts add to db
 */
+bot.mention('admin', handleAdmin);
 bot.on('new_chat_members', handleWelcome);
 bot.command('help', handleHelp);
 bot.command('test', handleTest);
