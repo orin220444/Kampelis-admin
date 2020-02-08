@@ -1,5 +1,23 @@
 # Changelog
 
+## v.1.1.1
+
+- Mongoose updated to 5.8.11
+
+- Added devdependencies husky, lint-staged
+
+- Added commands id, user
+
+- Added new stickers and gifs
+
+- Added handler @admin
+
+- Deleted commands gifid, stickerid
+
+- Added .eslintrc.yml to git
+
+- Bug fixes and little improvements
+
 ## v.1.1.0
 
 - Telegraf updated to 3.36.0
