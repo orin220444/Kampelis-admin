@@ -50,7 +50,7 @@ help: |
 
 test: |
   Test,
-  *Your ID* [${user}](tg://user?id=${user_id})
+  *Your name* [${user}](tg://user?id=${user_id})
   *You are in chat* ${chat}
   *Version* ${version}
 shrug: ¯\_(ツ)_/¯

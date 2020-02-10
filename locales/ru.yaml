@@ -50,7 +50,7 @@ help: |
     и /kick чтобы кикнуть
 test: |
   Тест,
-  *Ваш айди* [${user}](tg://user?id=${user_id})
+  *Вы* [${user}](tg://user?id=${user_id})
   *Вы находитесь в чате* ${chat}
   *Версия* ${version}
 shrug: ¯\_(ツ)_/¯
