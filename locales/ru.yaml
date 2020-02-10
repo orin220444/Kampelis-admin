@@ -1,7 +1,6 @@
 welcome:
   suc: Приветствую тебя, [${user}](tg://user?id=${user_id}) в чате ${chat}
   ChatMemberisbot: Добавлен бот. надеюсь, вы знаете, что делаете
-returnedChatMembers: С возвращением, [${user}](tg://user?id=${user_id}) в чат ${chat}
 ban:
   UserIsAnAdmin: Кхмм, заблокировать администратора? интересно...
   suc: Пользователь [${user}](tg://user?id=${user_id}) забанен!

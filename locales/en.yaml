@@ -1,7 +1,6 @@
 welcome:
   suc: Welcome [${user}](tg://user?id=${user_id}) to the chat ${chat}
   ChatMemberisbot: Added bot. Be careful.
-returnedChatMembers: Welcome back [${user}](tg://user?id=${user_id}) to the chat ${chat}
 ban:
   suc: User [${user}](tg://user?id=${user_id}) banned!
   UserIsAnAdmin: You want to ban an administrator?
