@@ -42,7 +42,7 @@ bot.command('durka', handleDurka);
 bot.command('id', handleID);
 bot.command('user', handleUser);
 bot.command('language', handleLanguage);
-bot.command('getLink', handleGetLink);
+bot.command('getlink', handleGetLink);
 bot.launch().then(() => {
   console.log(`bot started`);
 });
