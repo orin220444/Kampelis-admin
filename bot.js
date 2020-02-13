@@ -19,6 +19,7 @@ const {
   handleUser,
   handleAdmin,
   handleLanguage,
+  handleGetLink,
 } = require('./handlers');
 bot.use(i18n.middleware());
 /*
@@ -41,6 +42,7 @@ bot.command('durka', handleDurka);
 bot.command('id', handleID);
 bot.command('user', handleUser);
 bot.command('language', handleLanguage);
+bot.command('getLink', handleGetLink);
 bot.launch().then(() => {
   console.log(`bot started`);
 });

@@ -14,6 +14,7 @@ const handleID = require('./id');
 const handleUser = require('./user');
 const handleAdmin = require('./admin');
 const handleLanguage = require('./language');
+const handleGetLink = require('./getLink');
 module.exports = {
   handleWelcome,
   handleBan,
@@ -31,4 +32,5 @@ module.exports = {
   handleUser,
   handleAdmin,
   handleLanguage,
+  handleGetLink,
 };
