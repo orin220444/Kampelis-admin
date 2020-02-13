@@ -1,13 +1,7 @@
 const Telegraf = require('telegraf');
-const I18n = require('telegraf-i18n');
-const path = require('path');
 require('dotenv').config({path: './.env'});
 const bot = new Telegraf(process.env.BOT_TOKEN);
-const i18n = new I18n({
-  directory: path.resolve(__dirname, 'locales'),
-  defaultLanguage: 'ru',
-  defaultLanguageOnMissing: true,
-});
+const i18n = require('./i18n');
 const {
   handleWelcome,
   handleBan,
