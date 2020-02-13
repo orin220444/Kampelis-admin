@@ -9,7 +9,7 @@ module.exports = async (ctx) => {
     }
 
     const answer = '@admin' + mentions;
-    ;ctx.replyWithMarkdown(answer);
+    ctx.replyWithMarkdown(answer);
   } catch (error) {
     const answer = ctx.i18n.t('error', {error: error});
     ctx.replyWithMarkdown(answer, {
