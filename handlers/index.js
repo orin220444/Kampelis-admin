@@ -13,6 +13,7 @@ const handleDurka = require('./durka');
 const handleID = require('./id');
 const handleUser = require('./user');
 const handleAdmin = require('./admin');
+const handleGetLink = require('./getLink');
 module.exports = {
   handleWelcome,
   handleBan,
@@ -29,4 +30,5 @@ module.exports = {
   handleID,
   handleUser,
   handleAdmin,
+  handleGetLink,
 };
