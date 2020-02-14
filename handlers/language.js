@@ -1,16 +1,23 @@
-const {version} = require('../package.json');
-module.exports = (ctx) => {
-  try {
-    console.log(ctx);
-    ctx.i18n.locale('en');
-    const answer = ctx.i18n.t('test', {user: ctx.from.first_name,
-      chat: ctx.chat.title,
-      user_id: ctx.from.id,
-      version: version});
-    ctx.replyWithMarkdown(answer);
-  } catch (error) {
-    const answer = ctx.i18n.t('error', {error: error});
-    ctx.replyWithMarkdown(answer,
-        {reply_to_message_id: ctx.message.message_id});
-  }
+const {Group} = require('../database');
+const Markup = require('telegraf/markup');
+const Extra = require('telegraf/extra');
+const bot = require('../bot_init');
+const i18n = require('../i18n');
+bot.use(i18n.middleware());
+module.exports = async (ctx) => {
+  const answer = `Выберите язык:
+  Choose the language:`;
+  const keyboard = Extra.markup(Markup.inlineKeyboard([
+    Markup.callbackButton('🇷🇺', 'ru'),
+    Markup.callbackButton('🇺🇸', 'en'),
+  ]));
+  ctx.reply(answer, keyboard);
+  bot.action(/.+/, async (ctx) => {
+    ctx.reply(`Oh, ${ctx.match[0]}! Great choice`);
+    const setLocale = ctx.match[0];
+    i18n.resetLocale(setLocale);
+    const group = await Group.findOne({group_id: ctx.chat.id});
+    group.language = await setLocale;
+    await group.save();
+  });
 };
