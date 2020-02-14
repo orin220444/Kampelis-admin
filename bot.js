@@ -42,6 +42,7 @@ bot.command('id', handleID);
 bot.command('user', handleUser);
 bot.command('language', handleLanguage);
 bot.command('getlink', handleGetLink);
+bot.command('neprivet', handleNoHello);
 bot.launch().then(() => {
   console.log(`bot started`);
 });
