@@ -1,5 +1,5 @@
 require('dotenv').config({path: './.env'});
-const bot = require('./bot_init');
+const bot = require('./bot');
 const i18n = require('./i18n');
 const {
   handleWelcome,
@@ -19,7 +19,8 @@ const {
   handleAdmin,
   handleLanguage,
   handleGetLink,
-} = require('./handlers');
+  handleNoHello,
+} = require('../handlers');
 bot.use(i18n.middleware());
 /*
 TODO: settings
