@@ -1,8 +1,8 @@
 const {Group} = require('../database');
 const Markup = require('telegraf/markup');
 const Extra = require('telegraf/extra');
-const bot = require('../bot_init');
-const i18n = require('../i18n');
+const bot = require('../bot/bot');
+const i18n = require('../bot/i18n');
 bot.use(i18n.middleware());
 module.exports = async (ctx) => {
   const answer = `Выберите язык:
