@@ -24,6 +24,7 @@
     "dotenv": "^8.2.0",
     "mongoose": "^5.8.11",
     "path": "^0.12.7",
+    "svg-captcha": "^1.4.0",
     "telegraf": "^3.36.0",
     "telegraf-i18n": "^6.6.0"
   },
