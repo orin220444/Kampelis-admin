@@ -20,6 +20,7 @@ const {
   handleLanguage,
   handleGetLink,
   handleNoHello,
+  handleDelete,
 } = require('../handlers');
 bot.use(i18n.middleware());
 /*
@@ -44,6 +45,7 @@ bot.command('user', handleUser);
 bot.command('language', handleLanguage);
 bot.command('getlink', handleGetLink);
 bot.command('neprivet', handleNoHello);
+bot.command('delete', handleDelete);
 bot.launch().then(() => {
   console.log(`bot started`);
 });
