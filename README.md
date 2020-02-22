@@ -31,6 +31,10 @@
 - `/setrules` - set rules
 - `@admin` - call on admins
 
+## TO-DO
+
+[Trello](https://trello.com/b/9Xi2yuIU/kampelis-admin-to-do)
+
 ## License
 
 [MIT license](./LICENSE).
