@@ -7,7 +7,7 @@
     "dev": "npm run eslint && npm run nodemon",
     "start": "node index.js",
     "nodemon": "./node_modules/.bin/nodemon index.js",
-    "eslint": "./node_modules/.bin/eslint --fix --ext js .",
+    "eslint": "./node_modules/.bin/eslint --fix .",
     "precommit": "lint-staged"
   },
   "repository": {
