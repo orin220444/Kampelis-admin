@@ -22,7 +22,7 @@
   "homepage": "https://gitlab.com/orin220444/adminchatbot#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "mongoose": "^5.8.11",
+    "mongoose": "^5.9.3",
     "path": "^0.12.7",
     "telegraf": "^3.36.0",
     "telegraf-i18n": "^6.6.0"
