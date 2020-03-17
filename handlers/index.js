@@ -1,22 +1,23 @@
-const handleWelcome = require('./welcome');
-const handleBan = require('./ban');
-const handleUnban = require('./unban');
-const handleHelp = require('./help');
-const handleF = require('./f');
-const handleTest = require('./test');
-const handleKick = require('./kick');
-const handleShrug = require('./shrug');
-const handleReg = require('./reg');
-const handleSetRules = require('./setrules');
-const handleRules = require('./rules');
-const handleDurka = require('./durka');
-const handleID = require('./id');
-const handleUser = require('./user');
-const handleAdmin = require('./admin');
-const handleLanguage = require('./language');
-const handleGetLink = require('./getlink');
-const handleNoHello = require('./nohello');
-module.exports = {
+import handleWelcome from './welcome.js';
+import handleBan from './ban.js';
+import handleUnban from './unban.js';
+import handleHelp from './help.js';
+import handleF from './f.js';
+import handleTest from './test.js';
+import handleKick from './kick.js';
+import handleShrug from './shrug.js';
+import handleReg from './reg.js';
+import handleSetRules from './setrules.js';
+import handleRules from './rules.js';
+import handleDurka from './durka.js';
+import handleID from './id.js';
+import handleUser from './user.js';
+import handleAdmin from './admin.js';
+import handleLanguage from './language.js';
+import handleGetLink from './getlink.js';
+import handleNoHello from './nohello.js';
+
+export default {
   handleWelcome,
   handleBan,
   handleUnban,

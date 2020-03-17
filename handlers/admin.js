@@ -1,4 +1,4 @@
-module.exports = async (ctx) => {
+export default async (ctx) => {
   try {
     const admins = await ctx.telegram.getChatAdministrators(ctx.chat.id);
     let i = 0;
@@ -17,4 +17,3 @@ module.exports = async (ctx) => {
     });
   }
 };
-// FIXME: only tags last active 5 admins

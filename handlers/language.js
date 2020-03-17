@@ -1,10 +1,12 @@
 // const {Group} = require('../database');
-const Markup = require('telegraf/markup');
-const Extra = require('telegraf/extra');
-const bot = require('../bot/bot');
-const i18n = require('../bot/i18n');
+import Markup from 'telegraf';
+
+import Extra from 'telegraf';
+import bot from '../bot/bot.js';
+import i18n from '../bot/i18n.js';
 bot.use(i18n.middleware());
-module.exports = (ctx) => {
+
+export default (ctx) => {
   try {
     const answer = `Выберите язык:
 Choose the language:`;

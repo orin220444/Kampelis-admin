@@ -1,26 +1,26 @@
 require('dotenv').config({path: './.env'});
-const bot = require('./bot');
-const i18n = require('./i18n');
-const {
-  handleWelcome,
-  handleBan,
-  handleUnban,
-  handleHelp,
-  handleF,
+import bot from './bot.js';
+import i18n from './i18n.js';
+import {
+handleWelcome,
+handleBan,
+handleUnban,
+handleHelp,
+ handleF,
   handleTest,
-  handleKick,
-  handleReg,
-  handleShrug,
-  handleSetRules,
-  handleRules,
-  handleDurka,
-  handleID,
-  handleUser,
-  handleAdmin,
-  handleLanguage,
-  handleGetLink,
-  handleNoHello,
-} = require('../handlers');
+   handleKick,
+    handleReg,
+     handleShrug,
+      handleSetRules,
+       handleRules,
+        handleDurka,
+         handleID,
+          handleUser,
+           handleAdmin,
+            handleLanguage,
+             handleGetLink,
+              handleNoHello
+             } from '../handlers/index.js';
 bot.use(i18n.middleware());
 /*
 TODO: settings

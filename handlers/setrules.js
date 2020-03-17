@@ -1,5 +1,6 @@
-const {Group} = require('../database');
-module.exports = async (ctx) => {
+import { Group } from '../database.js';
+
+export default async (ctx) => {
   const group = await Group.findOne({group_id: ctx.chat.id});
   const chatMember = await ctx.telegram.getChatMember(
       ctx.message.chat.id, ctx.message.from.id,

@@ -1,4 +1,4 @@
-module.exports = async (ctx) => {
+export default async (ctx) => {
   try {
     const chatLink = await ctx.telegram.exportChatInviteLink(ctx.chat.id);
     ctx.reply(chatLink, {

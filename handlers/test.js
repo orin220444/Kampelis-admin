@@ -1,5 +1,6 @@
-const {version} = require('../package.json');
-module.exports = async (ctx) => {
+const { version } = require('../package.json');
+// convert to ESM
+export default async (ctx) => {
   try {
     const answer = ctx.i18n.t('test', {
       user: ctx.from.first_name,

@@ -1,1 +1,1 @@
-require('./bot');
+import './bot/index.js';

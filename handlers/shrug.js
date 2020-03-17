@@ -1,4 +1,4 @@
-module.exports = (ctx) => {
+export default (ctx) => {
   try {
     const answer = ctx.i18n.t('shrug');
     ctx.reply(answer,
@@ -11,4 +11,3 @@ module.exports = (ctx) => {
     );
   }
 };
-// TODO: regexp

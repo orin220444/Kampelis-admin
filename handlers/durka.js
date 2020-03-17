@@ -1,5 +1,6 @@
 const files = require('../config/files.json');
-module.exports = (ctx) => {
+// TODO: convert to ESM
+export default (ctx) => {
   const sticker = files.durka;
   const randomSticker = sticker[Math.floor(Math.random() * sticker.length)];
   try {

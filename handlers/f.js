@@ -1,5 +1,7 @@
 const files = require('../config/files.json');
-module.exports = (ctx) => {
+//TODO: CONVERT TO ESM
+
+export default (ctx) => {
   try {
     const gif = files.f;
     const randomGif = gif[Math.floor(Math.random() * gif.length)];

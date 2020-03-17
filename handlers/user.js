@@ -1,5 +1,6 @@
-const {User} = require('../database');
-module.exports = async (ctx) => {
+import { User } from '../database.js';
+
+export default async (ctx) => {
   if (!ctx.message.reply_to_message) {
     try {
       const answer = ctx.i18n.t('user.noreply');

@@ -1,5 +1,6 @@
-const {User, Group} = require('../database');
-module.exports = async (ctx) => {
+import { User, Group } from '../database.js';
+
+export default async (ctx) => {
   const user = await User.findOne({id: ctx.from.id});
   const group = await Group.findOne({group_id: ctx.chat.id});
 

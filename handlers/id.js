@@ -1,4 +1,4 @@
-module.exports = (ctx) => {
+export default (ctx) => {
   if (!ctx.message.reply_to_message) {
     try {
       const answer = ctx.i18n.t('id.err');
