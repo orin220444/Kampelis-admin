@@ -13,6 +13,7 @@ const handleRules = require('./rules');
 const handleDurka = require('./durka');
 const handleStickerID = require('./stickerid');
 const handleBomb = require('./bomb');
+const handleDice = require('./dice');
 module.exports = {
   handleWelcome,
   handleBan,
@@ -29,4 +30,5 @@ module.exports = {
   handleStickerID,
   handleDurka,
   handleBomb,
+  handleDice,
 };
