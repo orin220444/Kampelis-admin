@@ -24,7 +24,7 @@
     "dotenv": "^8.2.0",
     "mongoose": "^5.9.5",
     "path": "^0.12.7",
-    "telegraf": "^3.36.0",
+    "telegraf": "^3.37.0",
     "telegraf-i18n": "^6.6.0"
   },
   "devDependencies": {
@@ -32,7 +32,9 @@
     "eslint-config-google": "^0.14.0",
     "nodemon": "^2.0.2",
     "husky": "^4.2.3",
-    "lint-staged": "^10.0.8"
+    "lint-staged": "^10.0.8",
+    "acorn": ">=7.1.1",
+    "minimist": ">=1.2.2"
   },
   "lint-staged": {
     "*.{js}": [

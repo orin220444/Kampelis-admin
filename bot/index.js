@@ -20,7 +20,10 @@ const {
   handleLanguage,
   handleGetLink,
   handleNoHello,
-} = require('../handlers');
+  // handleStickerID,
+  handleBomb,
+  handleDice,
+} = require('./handlers');
 bot.use(i18n.middleware());
 /*
 TODO: settings
@@ -44,6 +47,10 @@ bot.command('user', handleUser);
 bot.command('language', handleLanguage);
 bot.command('getlink', handleGetLink);
 bot.command('neprivet', handleNoHello);
+// bot.command('id', handleStickerID);
+bot.command('durka', handleDurka);
+bot.command('bomb', handleBomb);
+bot.command('dice', handleDice);
 bot.launch().then(() => {
   console.log(`bot started`);
 });
