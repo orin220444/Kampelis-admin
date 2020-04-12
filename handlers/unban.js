@@ -1,6 +1,6 @@
 module.exports = async (ctx) => {
   if (!ctx.message.reply_to_message) {
-    const answer = ctx.i18n.t('unban.nobodytounban');
+    const answer = ctx.i18n.t('unBan.nobodyToUnBan');
     ctx.reply(answer,
         {reply_to_message_id: ctx.message.message_id});
   } else {
@@ -10,15 +10,15 @@ module.exports = async (ctx) => {
     const unBanUser = await ctx.telegram.getChatMember(
         ctx.message.chat.id, ctx.message.reply_to_message.from.id,
     );
-    const ischatMemberAnAdmin =
+    const isChatMemberAnAdmin =
    await chatMember.status === 'creator' || 'administrator';
-    const isunbanUserAnAdmin =
+    const isUnBanUserAnAdmin =
    await unBanUser.status === 'creator' || 'administrator';
 
 
-    if (isunbanUserAnAdmin) {
+    if (isUnBanUserAnAdmin) {
       try {
-        const answer = ctx.i18n.t('unban.UserIsAnAdmin');
+        const answer = ctx.i18n.t('unBan.UserIsAnAdmin');
         ctx.reply(answer,
             {reply_to_message_id: ctx.message.message_id},
         );
@@ -29,7 +29,7 @@ module.exports = async (ctx) => {
         );
       }
     }
-    if (!ischatMemberAnAdmin) {
+    if (!isChatMemberAnAdmin) {
       try {
         const answer = ctx.i18n.t('chatMemberIsNotAnAdmin');
         ctx.reply(answer,
@@ -49,7 +49,7 @@ module.exports = async (ctx) => {
           can_send_media_messages: true,
           can_add_web_page_previews: true,
         });
-        const answer = await ctx.i18n.t('unban.suc', {
+        const answer = await ctx.i18n.t('unBan.suc', {
           user: ctx.message.reply_to_message.from.first_name,
           user_id: unBanUser.id,
         });

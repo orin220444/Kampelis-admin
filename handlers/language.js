@@ -33,3 +33,4 @@ Choose the language:`;
     }
   });
 };
+// TODO: move answers to locales

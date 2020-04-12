@@ -1,6 +1,6 @@
 module.exports = async (ctx) => {
   if (!ctx.message.reply_to_message) {
-    const answer = ctx.i18n.t('kick.nobodytokick');
+    const answer = ctx.i18n.t('kick.nobodyToKick');
     ctx.reply(answer,
         {reply_to_message_id: ctx.message.message_id});
   } else {
@@ -10,15 +10,15 @@ module.exports = async (ctx) => {
     const kickUser = await ctx.telegram.getChatMember(
         ctx.chat.id, ctx.message.reply_to_message.from.id,
     );
-    const ischatMemberAnAdmin =
+    const isChatMemberAnAdmin =
     await chatMember.status === 'creator' || 'administrator';
-    const iskickUserAnAdmin =
+    const isKickUserAnAdmin =
     await kickUser.status === 'creator' || 'administrator';
     console.log(kickUser.status);
     console.log(kickUser);
     console.log(chatMember.status);
     console.log(chatMember);
-    if (iskickUserAnAdmin) {
+    if (isKickUserAnAdmin) {
       try {
         const answer = ctx.i18n.t('kick.UserIsAnAdmin');
         ctx.reply(answer, {reply_to_message_id: ctx.message.message_id},
@@ -30,7 +30,7 @@ module.exports = async (ctx) => {
         );
       }
     }
-    if (!ischatMemberAnAdmin) {
+    if (!isChatMemberAnAdmin) {
       try {
         const answer = ctx.i18n.t('chatMemberIsNotAnAdmin');
         ctx.reply(answer, {reply_to_message_id: ctx.message.message_id},
@@ -44,7 +44,7 @@ module.exports = async (ctx) => {
     } else {
       try {
         await ctx.telegram.kickChatMember(ctx.chat.id, kickUser.user.id);
-        await ctx.telegram.unbanChatMember(ctx.chat.id, kickUser.user.id);
+        await ctx.telegram.unBanChatMember(ctx.chat.id, kickUser.user.id);
         const answer = await ctx.i18n.t('kick.suc', {
           user: kickUser.user.first_name,
           user_id: kickUser.user.id,

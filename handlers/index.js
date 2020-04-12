@@ -1,28 +1,28 @@
 const handleWelcome = require('./welcome');
 const handleBan = require('./ban');
-const handleUnban = require('./unban');
+const handleUnBan = require('./unBan');
 const handleHelp = require('./help');
 const handleF = require('./f');
 const handleTest = require('./test');
 const handleKick = require('./kick');
 const handleShrug = require('./shrug');
 const handleReg = require('./reg');
-const handleSetRules = require('./setrules');
+const handleSetRules = require('./setRules');
 const handleRules = require('./rules');
-const handleDurka = require('./durka');
+const handleFun = require('./fun');
 const handleID = require('./id');
 const handleUser = require('./user');
 const handleAdmin = require('./admin');
 const handleLanguage = require('./language');
-const handleGetLink = require('./getlink');
-const handleNoHello = require('./nohello');
-// const handleStickerID = require('./stickerid');
+const handleGetLink = require('./getLink');
+const handleNoHello = require('./noHello');
+// const handleStickerID = require('./stickerId');
 const handleBomb = require('./bomb');
 const handleDice = require('./dice');
 module.exports = {
   handleWelcome,
   handleBan,
-  handleUnban,
+  handleUnBan,
   handleHelp,
   handleF,
   handleTest,
@@ -31,7 +31,7 @@ module.exports = {
   handleShrug,
   handleSetRules,
   handleRules,
-  handleDurka,
+  handleFun,
   handleID,
   handleUser,
   handleAdmin,

@@ -4,7 +4,7 @@ module.exports = async (ctx) => {
   const chatMember = await ctx.telegram.getChatMember(
       ctx.message.chat.id, ctx.message.from.id,
   );
-  const ischatMemberAnAdmin =
+  const isChatMemberAnAdmin =
 await chatMember.status === 'creator' || 'administrator';
 
   if (!group) {
@@ -21,10 +21,10 @@ await chatMember.status === 'creator' || 'administrator';
     }
   } else {
     console.log(chatMember);
-    console.log(ischatMemberAnAdmin);
+    console.log(isChatMemberAnAdmin);
     if (!ctx.message.reply_to_message) {
       try {
-        const answer = ctx.i18n.t('setrule.err');
+        const answer = ctx.i18n.t('setRule.err');
         ctx.reply(answer,
             {reply_to_message_id: ctx.message.message_id});
       } catch (error) {
@@ -34,12 +34,12 @@ await chatMember.status === 'creator' || 'administrator';
         );
       }
     }
-    if (ischatMemberAnAdmin) {
+    if (isChatMemberAnAdmin) {
       if (ctx.message.reply_to_message) {
         try {
           group.rules = await ctx.message.reply_to_message.text;
           await group.save();
-          const answer = ctx.i18n.t('setrule.suc');
+          const answer = ctx.i18n.t('setRule.suc');
           await ctx.reply(answer,
               {reply_to_message_id: ctx.message.message_id},
           );
@@ -51,7 +51,7 @@ await chatMember.status === 'creator' || 'administrator';
         }
       } else {
         try {
-          const answer = ctx.i18n.t('setrule.notaadmin');
+          const answer = ctx.i18n.t('setRule.notAnAdmin');
           ctx.replyWithMarkdown(answer,
               {reply_to_message_id: ctx.message.message_id},
           );

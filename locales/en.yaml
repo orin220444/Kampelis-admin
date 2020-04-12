@@ -1,25 +1,25 @@
 welcome:
   suc: Welcome [${user}](tg://user?id=${user_id}) to the chat ${chat}
-  ChatMemberisbot: Added bot. Be careful.
+  ChatMemberIsBot: Added bot. Be careful.
 ban:
   suc: User [${user}](tg://user?id=${user_id}) banned!
   UserIsAnAdmin: You want to ban an administrator?
-  nobodytoban: reply message from person you want to ban
-unban:
+  nobodyToBan: reply message from person you want to ban
+unBan:
   suc: User [${user}](tg://user?id=${user_id}) unbanned!
   UserIsAnAdmin: You want to unban an administrator?
-  nobodytounban: reply message from person you want to unban
+  nobodyToUnBan: reply message from person you want to unban
 kick:
   suc: User [${user}](tg://user?id=${user_id}) kicked!
   UserIsAnAdmin: You want to kick an administrator?
-  nobodytokick: reply message from person you want to kick
+  nobodyToKick: reply message from person you want to kick
 chatMemberIsNotAnAdmin: You are not an admin!
 user:
   added: |
     You are signed in!
   exists: |
     You are exists!
-  noreply: replay the message of the person you want to know information about
+  noReply: replay the message of the person you want to know information about
   info: |
     name: ${user_firstname}
     username: ${user_username}
@@ -27,14 +27,14 @@ user:
 group:
   added: Chat added
   exists: Chat exists
-  notfound: Firstly type /reg
+  notFound: Firstly type /reg
 error: Some error *${error}*
 rule:
     err: No rules
-setrule:
+setRule:
     suc: OK
     err: Reply message with rules
-    notanadmin: You are not an admin
+    notAnAdmin: You are not an admin
 help: |
   Commands:
   /f Salute
@@ -44,7 +44,7 @@ help: |
   @admin to call on admins
   Admin tools:
     /ban Ban user,
-    /unban Unban user
+    /unban UnBan user
     /setrules Set rules
     /kick Kick user
 
