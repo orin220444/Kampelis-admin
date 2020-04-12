@@ -4,7 +4,7 @@ const i18n = require('./i18n');
 const {
   handleWelcome,
   handleBan,
-  handleUnban,
+  handleUnBan,
   handleHelp,
   handleF,
   handleTest,
@@ -13,7 +13,7 @@ const {
   handleShrug,
   handleSetRules,
   handleRules,
-  handleDurka,
+  handleFun,
   handleID,
   handleUser,
   handleAdmin,
@@ -35,20 +35,20 @@ bot.command('help', handleHelp);
 bot.command('test', handleTest);
 bot.command('f', handleF);
 bot.command('ban', handleBan);
-bot.command('unban', handleUnban);
+bot.command('unban', handleUnBan);
 bot.command('kick', handleKick);
 bot.command('reg', handleReg);
 bot.command('shrug', handleShrug);
 bot.command('rules', handleRules);
-bot.command('setrules', handleSetRules);
-bot.command('durka', handleDurka);
+bot.command('setRules', handleSetRules);
+bot.command('durka', handleFun);
 bot.command('id', handleID);
 bot.command('user', handleUser);
 bot.command('language', handleLanguage);
 bot.command('getlink', handleGetLink);
 bot.command('neprivet', handleNoHello);
 // bot.command('id', handleStickerID);
-bot.command('durka', handleDurka);
+// bot.command('durka', handleDurka);
 bot.command('bomb', handleBomb);
 bot.command('dice', handleDice);
 bot.launch().then(() => {
