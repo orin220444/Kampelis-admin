@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "npm run eslint && npm run nodemon",
     "start": "node index.js",
-    "nodemon": "./node_modules/.bin/nodemon index.js",
-    "eslint": "./node_modules/.bin/eslint --fix .",
+    "nodemon": "npx nodemon index.js",
+    "eslint": "npx eslint --fix .",
     "precommit": "lint-staged"
   },
   "repository": {
