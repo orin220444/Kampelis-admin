@@ -46,12 +46,7 @@ module.exports = async (ctx) => {
       }
     } else {
       try {
-        await ctx.telegram.restrictChatMember(ctx.chat.id, banUser.user.id, {
-          can_send_messages: false,
-          can_send_other_messages: false,
-          can_send_media_messages: false,
-          can_add_web_page_previews: false,
-        });
+        await ban(ctx.chat.id, banUser.user.id);
         const answer = await ctx.i18n.t('ban.suc', {
           user: banUser.user.first_name,
           user_id: banUser.user.id,
@@ -65,4 +60,19 @@ module.exports = async (ctx) => {
       }
     }
   };
+
+  // functions
+  /**
+   * bans a chat member
+   * @param {number} user telegram user id
+   * @param {number} group telegram chat id
+   */
+  async function ban(user, group) {
+    await ctx.telegram.restrictChatMember(group, user, {
+      can_send_messages: false,
+      can_send_other_messages: false,
+      can_send_media_messages: false,
+      can_add_web_page_previews: false,
+    });
+  }
 };

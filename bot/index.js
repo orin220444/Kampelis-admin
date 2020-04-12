@@ -23,7 +23,7 @@ const {
   // handleStickerID,
   handleBomb,
   handleDice,
-} = require('./handlers');
+} = require('../handlers');
 bot.use(i18n.middleware());
 /*
 TODO: settings
