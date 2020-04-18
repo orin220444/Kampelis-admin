@@ -4,6 +4,7 @@ welcome:
 ban:
   suc: User [${user}](tg://user?id=${user_id}) banned!
   UserIsAnAdmin: You want to ban an administrator?
+  UserIdABot: I can't ban bots, sorry
   nobodyToBan: reply message from person you want to ban
 unBan:
   suc: User [${user}](tg://user?id=${user_id}) unbanned!

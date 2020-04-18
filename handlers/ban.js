@@ -6,24 +6,14 @@ module.exports = async (ctx) => {
         ctx.message.chat.id, ctx.message.from.id,
     );
     const isBanUserAnAdmin = await checkIsAnAdmin(
-        ctx.message.chat.id, ctx.message.reply_to_message.from.id,
+      ctx.message.chat.id, ctx.message.reply_to_message.from.id,
+  );
+    const isBanUserABot = checkIsABot(
+        ctx.message.reply_to_message.from,
     );
-    if (isBanUserAnAdmin) {
+    if (isBanUserABot) {
       try {
-        const answer = ctx.i18n.t('ban.UserIsAnAdmin');
-        ctx.reply(answer,
-            {reply_to_message_id: ctx.message.message_id},
-        );
-      } catch (error) {
-        const answer = ctx.i18n.t('error', {error: error});
-        ctx.replyWithMarkdown(answer,
-            {reply_to_message_id: ctx.message.message_id},
-        );
-      }
-    }
-    if (!isChatMemberAnAdmin) {
-      try {
-        const answer = ctx.i18n.t('chatMemberIsNotAnAdmin');
+        const answer = ctx.i18n.t('ban.UserIsABot');
         ctx.reply(answer,
             {reply_to_message_id: ctx.message.message_id},
         );
@@ -34,22 +24,48 @@ module.exports = async (ctx) => {
         );
       }
     } else {
-      try {
-        await ban(ctx.chat.id, banUser.user.id);
-        const answer = await ctx.i18n.t('ban.suc', {
-          user: banUser.user.first_name,
-          user_id: banUser.user.id,
-        });
-        await ctx.replyWithMarkdown(answer);
-      } catch (error) {
-        const answer = ctx.i18n.t('error', {error: error});
-        ctx.replyWithMarkdown(answer,
-            {reply_to_message_id: ctx.message.message_id},
-        );
+      if (isBanUserAnAdmin) {
+        try {
+          const answer = ctx.i18n.t('ban.UserIsAnAdmin');
+          ctx.reply(answer,
+              {reply_to_message_id: ctx.message.message_id},
+          );
+        } catch (error) {
+          const answer = ctx.i18n.t('error', {error: error});
+          ctx.replyWithMarkdown(answer,
+              {reply_to_message_id: ctx.message.message_id},
+          );
+        }
       }
-    }
-  };
-
+      if (!isChatMemberAnAdmin) {
+        try {
+          const answer = ctx.i18n.t('chatMemberIsNotAnAdmin');
+          ctx.reply(answer,
+              {reply_to_message_id: ctx.message.message_id},
+          );
+        } catch (error) {
+          const answer = ctx.i18n.t('error', {error: error});
+          ctx.replyWithMarkdown(answer,
+              {reply_to_message_id: ctx.message.message_id},
+          );
+        }
+      } else {
+        try {
+          await ban(ctx.chat.id, banUser.user.id);
+          const answer = await ctx.i18n.t('ban.suc', {
+            user: banUser.user.first_name,
+            user_id: banUser.user.id,
+          });
+          await ctx.replyWithMarkdown(answer);
+        } catch (error) {
+          const answer = ctx.i18n.t('error', {error: error});
+          ctx.replyWithMarkdown(answer,
+              {reply_to_message_id: ctx.message.message_id},
+          );
+        }
+      }
+    };
+  }
   // functions
 
   /**
@@ -88,5 +104,16 @@ module.exports = async (ctx) => {
     console.log(user);
     console.log(isUserAnAdmin);
     return isUserAnAdmin;
+  }
+  /**
+  * checks is user a bot
+  * @param {any} user telegram user
+  * @return {boolean} is user a bot
+  */
+  function checkIsABot(user) {
+    console.log(user.is_bot)
+    const isABot = user.is_bot;
+    console.log('isABot', isABot);
+    return isABot;
   }
 };
