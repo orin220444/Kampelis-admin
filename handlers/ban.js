@@ -2,14 +2,15 @@ module.exports = async (ctx) => {
   if (!ctx.message.reply_to_message) {
     nobodyToBan(ctx.message);
   } else {
+    const banUser = ctx.message.reply_to_message.from;
     const isChatMemberAnAdmin = await checkIsAnAdmin(
         ctx.message.chat.id, ctx.message.from.id,
     );
     const isBanUserAnAdmin = await checkIsAnAdmin(
-      ctx.message.chat.id, ctx.message.reply_to_message.from.id,
-  );
+        ctx.message.chat.id, banUser.id,
+    );
     const isBanUserABot = checkIsABot(
-        ctx.message.reply_to_message.from,
+        banUser,
     );
     if (isBanUserABot) {
       try {
@@ -51,10 +52,10 @@ module.exports = async (ctx) => {
         }
       } else {
         try {
-          await ban(ctx.chat.id, banUser.user.id);
+          await ban(ctx.chat.id, banUser.id);
           const answer = await ctx.i18n.t('ban.suc', {
-            user: banUser.user.first_name,
-            user_id: banUser.user.id,
+            user: banUser.first_name,
+            user_id: banUser.id,
           });
           await ctx.replyWithMarkdown(answer);
         } catch (error) {
@@ -73,7 +74,7 @@ module.exports = async (ctx) => {
    * @param {number} user telegram user id
    * @param {number} group telegram chat id
    */
-  async function ban(user, group) {
+  async function ban(group, user) {
     await ctx.telegram.restrictChatMember(group, user, {
       can_send_messages: false,
       can_send_other_messages: false,
@@ -92,16 +93,16 @@ module.exports = async (ctx) => {
   }
   /**
    * gets user info and checks is user an admin
-   * @param {number} chat telegram chat id
    * @param {number} userId telegram user id
+   * @param {number} chat telegram chat id
   */
   async function checkIsAnAdmin(chat, userId) {
     const user = await ctx.telegram.getChatMember(chat, userId);
     const isUserAnAdmin =
-   await user.status === 'creator' || 'administrator';
+   await !!user.status === 'creator' || 'administrator';
 
     console.log(user.status);
-    console.log(user);
+    console.log(user.user);
     console.log(isUserAnAdmin);
     return isUserAnAdmin;
   }
@@ -111,7 +112,7 @@ module.exports = async (ctx) => {
   * @return {boolean} is user a bot
   */
   function checkIsABot(user) {
-    console.log(user.is_bot)
+    console.log(user.is_bot);
     const isABot = user.is_bot;
     console.log('isABot', isABot);
     return isABot;
