@@ -71,8 +71,8 @@ module.exports = async (ctx) => {
 
   /**
    * bans a chat member
-   * @param {number} user telegram user id
    * @param {number} group telegram chat id
+   * @param {number} user telegram user id
    */
   async function ban(group, user) {
     await ctx.telegram.restrictChatMember(group, user, {
@@ -93,16 +93,16 @@ module.exports = async (ctx) => {
   }
   /**
    * gets user info and checks is user an admin
-   * @param {number} userId telegram user id
    * @param {number} chat telegram chat id
+   * @param {number} userId telegram user id
   */
   async function checkIsAnAdmin(chat, userId) {
     const user = await ctx.telegram.getChatMember(chat, userId);
     const isUserAnAdmin =
-   await !!user.status === 'creator' || 'administrator';
+user.status = 'creator' || 'administrator' ? true : false;
 
-    console.log(user.status);
     console.log(user.user);
+    console.log(user.status);
     console.log(isUserAnAdmin);
     return isUserAnAdmin;
   }

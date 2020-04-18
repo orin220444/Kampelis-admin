@@ -1,10 +1,11 @@
 const {User, Group} = require('../database');
 module.exports = async (ctx) => {
   const newbie = ctx.message.new_chat_member;
+  const group = ctx.chat;
   checkUser(newbie);
   try {
     await addUserToDb(newbie.id);
-    await addGroupToDb(ctx.chat.id);
+    await addGroupToDb(group);
 
     const answer = ctx.i18n.t('welcome.suc', {
       user: newbie.first_name,
@@ -14,36 +15,26 @@ module.exports = async (ctx) => {
     ctx.replyWithMarkdown(answer,
         {reply_to_message_id: ctx.message.message_id});
   } catch (error) {
-    sendError(error);
+    const answer = ctx.i18n.t('error', {error: error});
+    ctx.replyWithMarkdown(answer,
+        {reply_to_message_id: ctx.message.message_id},
+    );
   }
 };
 // functions
 
-
-/**
-   * sends error
-   * @param {error} message - error
-   */
-function sendError(message) {
-  const answer = ctx.i18n.t('error', {error: message});
-  ctx.replyWithMarkdown(answer,
-      {reply_to_message_id: ctx.message.message_id},
-  );
-}
-
-
 /**
      * searches group in the database and adds to the database if it not exists
-     * @param {number} groupID - Telegram group id
+     * @param {number} chat - Telegram group
      * @return {object} group data from the database
      */
-async function addGroupToDb(groupID) {
-  const group = await Group.findOne({group_id: groupID});
+async function addGroupToDb(chat) {
+  const group = await Group.findOne({group_id: chat.id});
   if (!group) {
     try {
       const group = await Group.create({
-        group_id: ctx.chat.id,
-        title: ctx.chat.title,
+        group_id: chat.id,
+        title: chat.title,
 
       });
       await group.save();
