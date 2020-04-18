@@ -1,24 +1,13 @@
 module.exports = async (ctx) => {
   if (!ctx.message.reply_to_message) {
-    const answer = ctx.i18n.t('ban.nobodyToBan');
-    ctx.reply(answer,
-        {reply_to_message_id: ctx.message.message_id});
+    nobodyToBan(ctx.message);
   } else {
-    const chatMember = await ctx.telegram.getChatMember(
+    const isChatMemberAnAdmin = await checkIsAnAdmin(
         ctx.message.chat.id, ctx.message.from.id,
     );
-    const banUser = await ctx.telegram.getChatMember(
+    const isBanUserAnAdmin = await checkIsAnAdmin(
         ctx.message.chat.id, ctx.message.reply_to_message.from.id,
     );
-    const isChatMemberAnAdmin =
-   await chatMember.status === 'creator' || 'administrator';
-    const isBanUserAnAdmin =
-   await banUser.status === 'creator' || 'administrator';
-    console.log(banUser.status);
-    console.log(banUser);
-    console.log(chatMember.status);
-    console.log(chatMember);
-
     if (isBanUserAnAdmin) {
       try {
         const answer = ctx.i18n.t('ban.UserIsAnAdmin');
@@ -62,6 +51,7 @@ module.exports = async (ctx) => {
   };
 
   // functions
+
   /**
    * bans a chat member
    * @param {number} user telegram user id
@@ -74,5 +64,29 @@ module.exports = async (ctx) => {
       can_send_media_messages: false,
       can_add_web_page_previews: false,
     });
+  }
+  /**
+   * checks is a reply to the user to ban
+   * @param {any} message the message object
+  */
+  function nobodyToBan(message) {
+    const answer = ctx.i18n.t('ban.nobodyToBan');
+    ctx.reply(answer,
+        {reply_to_message_id: message.message_id});
+  }
+  /**
+   * gets user info and checks is user an admin
+   * @param {number} chat telegram chat id
+   * @param {number} userId telegram user id
+  */
+  async function checkIsAnAdmin(chat, userId) {
+    const user = await ctx.telegram.getChatMember(chat, userId);
+    const isUserAnAdmin =
+   await user.status === 'creator' || 'administrator';
+
+    console.log(user.status);
+    console.log(user);
+    console.log(isUserAnAdmin);
+    return isUserAnAdmin;
   }
 };
