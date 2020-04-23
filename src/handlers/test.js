@@ -1,4 +1,4 @@
-const {version} = require('../package.json');
+const {version} = require('../../package.json');
 module.exports = async (ctx) => {
   try {
     const answer = ctx.i18n.t('test', {

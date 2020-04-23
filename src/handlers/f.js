@@ -1,4 +1,4 @@
-const files = require('../config/files.json');
+const files = require('../../config/files.json');
 module.exports = (ctx) => {
   try {
     const gif = files.f;

@@ -1,10 +1,10 @@
-const files = require('../config/files.json');
-module.exports = (ctx) => {
-  const sticker = files.bomb;
-  const randomSticker = sticker[Math.floor(Math.random() * sticker.length)];
-  if (!ctx.message.reply_to_message) {
+const {Group} = require('../database');
+module.exports = async (ctx) => {
+  const group = await Group.findOne({group_id: ctx.chat.id});
+  if (!group) {
     try {
-      ctx.replyWithSticker(randomSticker,
+      const answer = ctx.i18n.t('group.notfound');
+      ctx.replyWithMarkdown(answer,
           {reply_to_message_id: ctx.message.message_id},
       );
     } catch (error) {
@@ -15,8 +15,11 @@ module.exports = (ctx) => {
     }
   } else {
     try {
-      ctx.replyWithSticker(randomSticker,
-          {reply_to_message_id: ctx.message.reply_to_message.message_id},
+      const rule = group.rules;
+      const isRule = !!rule;
+      const answer = isRule ? rule : ctx.i18n.t('rule.err');
+      ctx.reply(answer,
+          {reply_to_message_id: ctx.message.message_id},
       );
     } catch (error) {
       const answer = ctx.i18n.t('error', {error: error});
@@ -24,5 +27,5 @@ module.exports = (ctx) => {
           {reply_to_message_id: ctx.message.message_id},
       );
     }
-  }
+  };
 };

@@ -1,4 +1,4 @@
-const files = require('../config/files.json');
+const files = require('../../config/files.json');
 module.exports = (ctx) => {
   const sticker = files.durka;
   const randomSticker = sticker[Math.floor(Math.random() * sticker.length)];
