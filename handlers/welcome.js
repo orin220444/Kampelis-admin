@@ -75,6 +75,7 @@ async function addUserToDb(userID) {
 /**
    * checks for the is_bot field of the user
    * @param {object} user - telegram user object
+   * @param {object} ctx - telegraf context
    */
 function checkUser(user, ctx) {
   if (user.is_bot) {
