@@ -2,7 +2,7 @@ const {User, Group} = require('../database');
 module.exports = async (ctx) => {
   const newbie = ctx.message.new_chat_member;
   const group = ctx.chat;
-  checkUser(newbie);
+  checkUser(newbie, ctx);
   try {
     await addUserToDb(newbie.id);
     await addGroupToDb(group);
@@ -76,7 +76,7 @@ async function addUserToDb(userID) {
    * checks for the is_bot field of the user
    * @param {object} user - telegram user object
    */
-function checkUser(user) {
+function checkUser(user, ctx) {
   if (user.is_bot) {
     const answer = ctx.i18n.t('welcome.ChatMemberIsBot');
     ctx.reply(answer,

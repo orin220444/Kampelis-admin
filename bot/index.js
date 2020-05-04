@@ -23,6 +23,7 @@ const {
   // handleStickerID,
   handleBomb,
   handleDice,
+  handleDarts
 } = require('../handlers');
 bot.use(i18n.middleware());
 /*
@@ -51,6 +52,7 @@ bot.command('neprivet', handleNoHello);
 // bot.command('durka', handleDurka);
 bot.command('bomb', handleBomb);
 bot.command('dice', handleDice);
+bot.command('darts', handleDarts)
 bot.launch().then(() => {
   console.log(`bot started`);
 });
