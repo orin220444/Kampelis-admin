@@ -28,8 +28,7 @@ module.exports = async (ctx) => {
             {reply_to_message_id: ctx.message.message_id},
         );
       }
-    }
-    if (!isChatMemberAnAdmin) {
+    } else if (!isChatMemberAnAdmin) {
       try {
         const answer = ctx.i18n.t('chatMemberIsNotAnAdmin');
         ctx.reply(answer,
