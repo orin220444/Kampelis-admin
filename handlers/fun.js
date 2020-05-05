@@ -1,13 +1,13 @@
 const files = require('../config/files.json');
 module.exports = (ctx) => {
+  const sticker = files.durka;
+  const randomSticker = sticker[Math.floor(Math.random() * sticker.length)];
   try {
-    const gif = files.f;
-    const randomGif = gif[Math.floor(Math.random() * gif.length)];
     const isReply = !!ctx.message.reply_to_message;
     const message = isReply ?
       ctx.message.reply_to_message.message_id :
       ctx.message.message_id;
-    ctx.replyWithDocument(randomGif,
+    ctx.replyWithSticker(randomSticker,
         {reply_to_message_id: message},
     );
   } catch (error) {
@@ -15,5 +15,5 @@ module.exports = (ctx) => {
     ctx.replyWithMarkdown(answer,
         {reply_to_message_id: ctx.message.message_id},
     );
-  };
+  }
 };

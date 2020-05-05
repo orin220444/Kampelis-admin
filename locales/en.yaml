@@ -1,0 +1,57 @@
+welcome:
+  suc: Welcome [${user}](tg://user?id=${user_id}) to the chat ${chat}
+  ChatMemberIsBot: Added bot. Be careful.
+ban:
+  suc: User [${user}](tg://user?id=${user_id}) banned!
+  UserIsAnAdmin: You want to ban an administrator?
+  UserIdABot: I can't ban bots, sorry
+  nobodyToBan: reply message from person you want to ban
+unBan:
+  suc: User [${user}](tg://user?id=${user_id}) unbanned!
+  UserIsAnAdmin: You want to unban an administrator?
+  nobodyToUnBan: reply message from person you want to unban
+kick:
+  suc: User [${user}](tg://user?id=${user_id}) kicked!
+  UserIsAnAdmin: You want to kick an administrator?
+  nobodyToKick: reply message from person you want to kick
+chatMemberIsNotAnAdmin: You are not an admin!
+user:
+  added: |
+    You are signed in!
+  exists: |
+    You are exists!
+  noReply: replay the message of the person you want to know information about
+  info: |
+    name: ${user_firstname}
+    username: ${user_username}
+    id: ${user_id}
+group:
+  added: Chat added
+  exists: Chat exists
+  notFound: Firstly type /reg
+error: Some error *${error}*
+rule:
+    err: No rules
+setRule:
+    suc: OK
+    err: Reply message with rules
+    notAnAdmin: You are not an admin
+help: |
+  Commands:
+  /f Salute
+  /shrug Send ¯\_(ツ)_/¯
+  /rules Read the rules
+  /reg Reg in DB
+  @admin to call on admins
+  Admin tools:
+    /ban Ban user,
+    /unban UnBan user
+    /setrules Set rules
+    /kick Kick user
+
+test: |
+  Test,
+  *Your name* [${user}](tg://user?id=${user_id})
+  *You are in chat* ${chat}
+  *Version* ${version}
+shrug: ¯\_(ツ)_/¯

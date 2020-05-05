@@ -1,31 +1,41 @@
-newChatMembers: Приветствую тебя, [${user}](tg://user?id=${user_id}) в чате ${chat}
-newChatMemberisbot: Добавлен бот. надеюсь, вы знаете, что делаете
-returnedChatMembers: С возвращением, [${user}](tg://user?id=${user_id}) в чат ${chat}
-banUserIsAnAdmin: Кхмм, заблокировать администратора? интересно...
-unbanUserIsAnAdmin: Кхмм, разблокировать администратора? интересно...
+welcome:
+  suc: Приветствую тебя, [${user}](tg://user?id=${user_id}) в чате ${chat}
+  ChatMemberIsBot: Добавлен бот. надеюсь, вы знаете, что делаете
+ban:
+  UserIsAnAdmin: Кхмм, заблокировать администратора? интересно...
+  UserIsABot: Я не могу заблокировать бота!
+  suc: Пользователь [${user}](tg://user?id=${user_id}) забанен!
+  nobodyToBan: реплайните сообщение человека, которого хотите забанить
+unban:
+  suc: Пользователь [${user}](tg://user?id=${user_id}) разбанен!
+  nobodyToUnBan: реплайните сообщение человека, которого хотите разбанить
+  UserIsAnAdmin: Кхмм, разблокировать администратора? интересно...
+kick:
+  suc: Пользователь [${user}](tg://user?id=${user_id}) кикнут!
+  nobodyToKick: реплайните сообщение человека, которого хотите кикнуть
+  UserIsAnAdmin: Кхмм, кикнуть администратора? интересно...
 chatMemberIsNotAnAdmin: Вы не администратор!
-userBanned: Пользователь [${user}](tg://user?id=${user_id}) забанен!
-userUnBanned: Пользователь [${user}](tg://user?id=${user_id}) разбанен!
-userKicked: Пользователь [${user}](tg://user?id=${user_id}) кикнут!
-nobodytokick: реплайните сообщение человека, которого хотите кикнуть
-nobodytoban: реплайните сообщение человека, которого хотите забанить
-nobodytounban: реплайните сообщение человека, которого хотите разбанить
 user:
   added: |
     Вы успешно зарегистрировались!
-  exists: | 
+  exists: |
     Вы уже были зарегистрированы!
-group: 
+  noReply: реплайните сообщение человека, информацию о котором хотите узнать
+  info: |
+    имя: ${user_firstname}
+    username: ${user_username}
+    id: ${user_id}
+group:
   added: чат добавлен!
   exists: чат уже есть!
-  notfound: Для начала пропишите /reg
-error: Чет не работает *${error}* 
+  notFound: Для начала пропишите /reg
+error: Чет не работает *${error}*
 rule:
     err: в чате нет правил!
-setrule:
+setRule:
     suc: готово!
     err: реплайните сообщение с правилами, чтобы я его запомнил!
-    notanadmin: Вы не администратор!
+    notAnAdmin: Вы не администратор!
 help: |
   Основные команды:
   /f чтобы отдать честь
@@ -33,15 +43,15 @@ help: |
   /durka - не нуждается в объяснении
   /rules чтобы проверить правила
   /reg чтобы зарегистрироваться в базе данных
+  @admin чтобы вызвать админов
   Админ тулз:
     /ban чтобы забанить пользователя,
     /unban чтобы разбанить
     /setrules чтобы установить правила
     и /kick чтобы кикнуть
-kickUserIsAnAdmin: Кхмм, кикнуть администратора? интересно...
 test: |
-  Тест, 
-  *Ваш айди* [${user}](tg://user?id=${user_id})
+  Тест,
+  *Вы* [${user}](tg://user?id=${user_id})
   *Вы находитесь в чате* ${chat}
   *Версия* ${version}
 shrug: ¯\_(ツ)_/¯

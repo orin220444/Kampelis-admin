@@ -1,13 +1,14 @@
 {
-  "name": "adminchatbot",
-  "version": "1.1.0",
+  "name": "kampelis-admin",
+  "version": "1.2.0",
   "description": "Bot for administering chats on Node.js",
   "main": "index.js",
   "scripts": {
     "dev": "npm run eslint && npm run nodemon",
     "start": "node index.js",
-    "nodemon": "./node_modules/.bin/nodemon index.js",
-    "eslint": "./node_modules/.bin/eslint --fix --ext js ."
+    "nodemon": "npx nodemon index.js",
+    "eslint": "npx eslint --fix .",
+    "precommit": "lint-staged"
   },
   "repository": {
     "type": "git",
@@ -21,16 +22,28 @@
   "homepage": "https://gitlab.com/orin220444/adminchatbot#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "mongoose": "^5.8.9",
+    "mongoose": "^5.9.11",
     "path": "^0.12.7",
-    "telegraf": "^3.37.0",
+    "telegraf": "^3.38.0",
     "telegraf-i18n": "^6.6.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.2",
+    "acorn": ">=7.1.1",
     "eslint": "^6.8.0",
     "eslint-config-google": "^0.14.0",
-    "acorn": ">=7.1.1",
-    "minimist": ">=1.2.2"
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.2",
+    "minimist": ">=1.2.5",
+    "nodemon": "^2.0.3"
+  },
+  "lint-staged": {
+    "*.{js}": [
+      "node_modules/.bin/eslint --fix --max-warnings=0"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }

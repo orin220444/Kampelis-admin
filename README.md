@@ -8,6 +8,8 @@
 
 - Salute
 
+- Call on admins
+
 ## Installing
 
 1. Download Node.js [from official web page](https://nodejs.org/)
@@ -27,3 +29,12 @@
 - `/shrug` - send `¯\_(ツ)_/¯`
 - `/rules` - read rules
 - `/setrules` - set rules
+- `@admin` - call on admins
+
+## TO-DO
+
+[Trello](https://trello.com/b/9Xi2yuIU/kampelis-admin-to-do)
+
+## License
+
+[MIT license](./LICENSE).

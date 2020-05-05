@@ -1,5 +1,55 @@
 # Changelog
 
+## v.1.2
+
+- Added command /darts
+
+- Added command /dice
+
+- Added command /bomb
+
+- Add trello link on readme
+
+- Added .eslintrc file
+
+- Added .vscode directory
+
+- Added command /id
+
+- Added command @admin
+
+- Added command /getlink
+
+- Added command nohello
+
+- WIP: Add support of English language
+
+- Move some code to new files and new places
+
+- Updated dependencies
+
+- Add precommit script to fix code
+
+- Bug fixes and little improvements
+
+## v.1.1.1
+
+- Mongoose updated to 5.8.11
+
+- Added devdependencies husky, lint-staged
+
+- Added commands id, user
+
+- Added new stickers and gifs
+
+- Added handler @admin
+
+- Deleted commands gifid, stickerid
+
+- Added .eslintrc.yml to git
+
+- Bug fixes and little improvements
+
 ## v.1.1.0
 
 - Telegraf updated to 3.36.0

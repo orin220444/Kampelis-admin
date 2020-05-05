@@ -29,6 +29,10 @@ const groupSchema = new Schema({
     default: [],
   },
   title: String,
+  language: {
+    type: String,
+    default: 'ru',
+  },
 });
 const Group = mongoose.model('Group', groupSchema);
 const User = mongoose.model('User', userSchema);
