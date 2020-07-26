@@ -3,12 +3,16 @@ module.exports = async (ctx) => {
     nobodyToBan(ctx.message);
   } else {
     const banUser = ctx.message.reply_to_message.from;
-    const isChatMemberAnAdmin = await checkIsAnAdmin(
-        ctx.message.chat.id, ctx.message.from.id,
+    const admin = ctx.message.from;
+
+    const isChatMemberAnAdmin = checkIsAnAdmin(
+        ctx.chat.id, admin.id,
     );
-    const isBanUserAnAdmin = await checkIsAnAdmin(
-        ctx.message.chat.id, banUser.id,
+    const isBanUserAnAdmin = checkIsAnAdmin(
+        ctx.chat.id, banUser.id,
     );
+
+
     const isBanUserABot = checkIsABot(
         banUser,
     );
@@ -99,7 +103,7 @@ module.exports = async (ctx) => {
   async function checkIsAnAdmin(chat, userId) {
     const user = await ctx.telegram.getChatMember(chat, userId);
     const isUserAnAdmin =
-user.status = 'creator' || 'administrator' ? true : false;
+(user.status === 'creator' || user.status === 'administrator') ? true : false;
 
     console.log(user.user);
     console.log(user.status);
