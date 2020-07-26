@@ -4,14 +4,14 @@ module.exports = async (ctx) => {
   } else {
     const banUser = ctx.message.reply_to_message.from;
     const admin = ctx.message.from;
-
+await Promise.all([
     const isChatMemberAnAdmin = checkIsAnAdmin(
         ctx.chat.id, admin.id,
-    );
+    ),
     const isBanUserAnAdmin = checkIsAnAdmin(
         ctx.chat.id, banUser.id,
-    );
-
+    ),
+]).then(
 
     const isBanUserABot = checkIsABot(
         banUser,
@@ -67,7 +67,7 @@ module.exports = async (ctx) => {
           ctx.replyWithMarkdown(answer,
               {reply_to_message_id: ctx.message.message_id},
           );
-        }
+        )}
       }
     };
   }
