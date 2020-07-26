@@ -15,9 +15,7 @@ module.exports = async (ctx) => {
     const answer = `Пользователь @${ctx.from.username} запросил ссылку!`;
     while (i < admins.length) {
       try {
-        if (admins[i].user.is_bot) {
-
-        } else {
+        if (!admins[i].user.is_bot) {
           ctx.telegram.sendMessage(admins[i].user.id, answer);
         }
       } catch (error) {
