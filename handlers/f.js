@@ -1,6 +1,9 @@
-const files = require('../config/files.json');
-export const handleF = (ctx) => {
+import {readFile} from 'fs';
+import {promisify} from 'util';
+const catFile = promisify(readFile);
+export const handleF = async (ctx) => {
   try {
+    const files = await catFile('../config/files.json');
     const gif = files.f;
     const randomGif = gif[Math.floor(Math.random() * gif.length)];
     const isReply = !!ctx.message.reply_to_message;

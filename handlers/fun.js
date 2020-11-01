@@ -1,5 +1,8 @@
-const files = require('../config/files.json');
-export const handleFun = (ctx) => {
+import {writeFile} from 'fs';
+import {promisify} from 'util';
+const catFile = promisify(writeFile);
+export const handleFun = async (ctx) => {
+  const files = await catFile('../config/files.json');
   const sticker = files.durka;
   const randomSticker = sticker[Math.floor(Math.random() * sticker.length)];
   try {

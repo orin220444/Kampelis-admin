@@ -1,4 +1,4 @@
-import 'dotenv/config.js'
+import 'dotenv/config.js';
 import {bot} from './bot.js';
 import {i18n} from './i18n.js';
 import {
