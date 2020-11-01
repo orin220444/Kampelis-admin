@@ -1,6 +1,8 @@
 require('dotenv').config({path: './.env'});
 const bot = require('./bot');
 const i18n = require('./i18n');
+const Stage = require('telegraf')
+const session = require('telegraf')
 const {
   handleWelcome,
   handleBan,
@@ -24,12 +26,16 @@ const {
   handleBomb,
   handleDice,
   handleDarts,
+	handleWeather,
 } = require('../handlers');
 bot.use(i18n.middleware());
 /*
 TODO: settings
 TODO: scripts add to db
 */
+const stage = new Stage([handleWeather])
+bot.use(stage.middleware())
+bot.use(session())
 bot.mention('admin', handleAdmin);
 bot.on('new_chat_members', handleWelcome);
 bot.command('help', handleHelp);
@@ -53,6 +59,7 @@ bot.command('neprivet', handleNoHello);
 bot.command('bomb', handleBomb);
 bot.command('dice', handleDice);
 bot.command('darts', handleDarts);
+bot.command('weather', (ctx) => ctx.scene.start('WeatherScene'))
 bot.launch().then(() => {
   console.log(`bot started`);
 });
