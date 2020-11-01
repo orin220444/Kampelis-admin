@@ -1,8 +1,8 @@
 // const {Group} = require('../database');
-import Markup from 'telegraf/markup';
-import Extra from 'telegraf/extra';
+import Markup from 'telegraf/markup.js';
+import Extra from 'telegraf/extra.js';
 import {bot} from '../bot/bot.js';
-import {i18n} from '../bot/i18n';
+import {i18n} from '../bot/i18n.js';
 bot.use(i18n.middleware());
 export const handleLanguage = (ctx) => {
   try {

@@ -1,4 +1,4 @@
-import {User, Group} from '../database';
+import {User, Group} from '../database.js';
 export const handleWelcome = async (ctx) => {
   const newbie = ctx.message.new_chat_member;
   const group = ctx.chat;

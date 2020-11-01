@@ -1,4 +1,4 @@
-import {User, Group} from '../database';
+import {User, Group} from '../database.js';
 export const handleReg = async (ctx) => {
   const user = await User.findOne({id: ctx.from.id});
   const group = await Group.findOne({group_id: ctx.chat.id});

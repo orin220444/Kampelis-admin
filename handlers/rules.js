@@ -1,4 +1,4 @@
-import {Group} from '../database';
+import {Group} from '../database.js';
 export const handleRules = async (ctx) => {
   const group = await Group.findOne({group_id: ctx.chat.id});
   if (!group) {

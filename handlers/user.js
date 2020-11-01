@@ -1,4 +1,4 @@
-import {User} form '../database';
+import {User} from '../database.js';
 export const handleUser = async (ctx) => {
   if (!ctx.message.reply_to_message) {
     try {
