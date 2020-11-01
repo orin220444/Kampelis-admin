@@ -21,3 +21,4 @@ export {handleBomb} from './bomb.js';
 export {handleDice} from './dice.js';
 export {handleDarts} from './darts.js';
 export {handleRate} from './rate.js';
+export {handleWeather} from './weather.js';

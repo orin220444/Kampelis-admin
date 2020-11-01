@@ -1,6 +1,8 @@
 import 'dotenv/config.js';
 import {bot} from './bot.js';
 import {i18n} from './i18n.js';
+import session from 'telegraf/session.js';
+import Stage from 'telegraf/stage.js'
 import {
   handleWelcome,
   handleBan,
@@ -25,12 +27,16 @@ import {
   handleDice,
   handleDarts,
   handleRate,
+handleWeather,
 } from '../handlers/index.js';
 bot.use(i18n.middleware());
 /*
 TODO: settings
 TODO: scripts add to db
 */
+const stage = new Stage([handleWeather]);
+bot.use(stage.middleware());
+bot.use(session());
 bot.mention('admin', handleAdmin);
 bot.on('new_chat_members', handleWelcome);
 bot.command('help', handleHelp);
@@ -55,6 +61,7 @@ bot.command('bomb', handleBomb);
 bot.command('dice', handleDice);
 bot.command('darts', handleDarts);
 bot.command('rate', handleRate);
+bot.command('weather', (ctx) => ctx.scene.start('WeatherScene'));
 bot.launch().then(() => {
   console.log(`bot started`);
 });
