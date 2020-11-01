@@ -1,5 +1,5 @@
-const {Group} = require('../database');
-module.exports = async (ctx) => {
+import {Group} from '../database';
+export const handleRules = async (ctx) => {
   const group = await Group.findOne({group_id: ctx.chat.id});
   if (!group) {
     try {

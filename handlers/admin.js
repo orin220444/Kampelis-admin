@@ -1,4 +1,4 @@
-module.exports = async (ctx) => {
+export const handleAdmin = async (ctx) => {
   try {
     const admins = await ctx.telegram.getChatAdministrators(ctx.chat.id);
     let i = 0;

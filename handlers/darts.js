@@ -1,4 +1,4 @@
-module.exports = async (ctx) => {
+export const handleDarts = async (ctx) => {
   const darts = await ctx.replyWithDice({emoji: '🎯'});
   console.log(darts);
   if (darts.dice.value === 6) {

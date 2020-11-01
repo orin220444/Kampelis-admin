@@ -1,5 +1,5 @@
 const files = require('../config/files.json');
-module.exports = (ctx) => {
+export const handleBomb = (ctx) => {
   const sticker = files.bomb;
   const randomSticker = sticker[Math.floor(Math.random() * sticker.length)];
   if (!ctx.message.reply_to_message) {

@@ -1,5 +1,5 @@
 const {version} = require('../package.json');
-module.exports = async (ctx) => {
+export const handleTest = async (ctx) => {
   try {
     const answer = ctx.i18n.t('test', {
       user: ctx.from.first_name,

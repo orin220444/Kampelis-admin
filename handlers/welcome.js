@@ -1,5 +1,5 @@
-const {User, Group} = require('../database');
-module.exports = async (ctx) => {
+import {User, Group} from '../database';
+export const handleWelcome = async (ctx) => {
   const newbie = ctx.message.new_chat_member;
   const group = ctx.chat;
   checkUser(newbie, ctx);

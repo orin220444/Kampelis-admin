@@ -1,4 +1,4 @@
-module.exports = async (ctx) => {
+export const handleUnBan = async (ctx) => {
   if (!ctx.message.reply_to_message) {
     const answer = ctx.i18n.t('unBan.nobodyToUnBan');
     ctx.reply(answer,

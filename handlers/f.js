@@ -1,5 +1,5 @@
 const files = require('../config/files.json');
-module.exports = (ctx) => {
+export const handleF = (ctx) => {
   try {
     const gif = files.f;
     const randomGif = gif[Math.floor(Math.random() * gif.length)];

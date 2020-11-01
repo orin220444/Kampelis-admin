@@ -1,7 +1,7 @@
-require('dotenv').config({path: './.env'});
-const bot = require('./bot');
-const i18n = require('./i18n');
-const {
+import 'dotenv/config.js'
+import {bot} from './bot.js';
+import {i18n} from './i18n.js';
+import {
   handleWelcome,
   handleBan,
   handleUnBan,
@@ -24,7 +24,7 @@ const {
   handleBomb,
   handleDice,
   handleDarts,
-} = require('../handlers');
+} from '../handlers/index.js';
 bot.use(i18n.middleware());
 /*
 TODO: settings

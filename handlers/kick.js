@@ -1,4 +1,4 @@
-module.exports = async (ctx) => {
+export const handleKick = async (ctx) => {
   if (!ctx.message.reply_to_message) {
     const answer = ctx.i18n.t('kick.nobodyToKick');
     ctx.reply(answer,

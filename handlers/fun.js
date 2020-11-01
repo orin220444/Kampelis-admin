@@ -1,5 +1,5 @@
 const files = require('../config/files.json');
-module.exports = (ctx) => {
+export const handleFun = (ctx) => {
   const sticker = files.durka;
   const randomSticker = sticker[Math.floor(Math.random() * sticker.length)];
   try {

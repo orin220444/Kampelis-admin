@@ -1,4 +1,4 @@
-module.exports = (ctx) => {
+export const handleID = (ctx) => {
   if (!ctx.message.reply_to_message) {
     try {
       const answer = ctx.i18n.t('id.err');

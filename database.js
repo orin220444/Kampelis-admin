@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 mongoose.connect(process.env.MONGODB_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -34,9 +34,5 @@ const groupSchema = new Schema({
     default: 'ru',
   },
 });
-const Group = mongoose.model('Group', groupSchema);
-const User = mongoose.model('User', userSchema);
-module.exports = {
-  User,
-  Group,
-};
+export const Group = mongoose.model('Group', groupSchema);
+export const User = mongoose.model('User', userSchema);

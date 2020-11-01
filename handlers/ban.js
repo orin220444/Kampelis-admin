@@ -1,4 +1,4 @@
-module.exports = async (ctx) => {
+export const handleBan = async (ctx) => {
   if (!ctx.message.reply_to_message) {
     nobodyToBan(ctx.message);
   } else {

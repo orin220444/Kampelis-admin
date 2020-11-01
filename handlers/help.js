@@ -1,4 +1,4 @@
-module.exports = (ctx) => {
+export  const handleHelp = (ctx) => {
   try {
     const answer = ctx.i18n.t('help');
     ctx.reply(answer,

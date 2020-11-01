@@ -1,4 +1,4 @@
-module.exports = (ctx) => {
+export const handleShrug = (ctx) => {
   try {
     const answer = ctx.i18n.t('shrug');
     ctx.reply(answer,
