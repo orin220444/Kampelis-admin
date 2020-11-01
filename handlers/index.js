@@ -20,3 +20,4 @@ export {handleNoHello} from './noHello.js';
 export {handleBomb} from './bomb.js';
 export {handleDice} from './dice.js';
 export {handleDarts} from './darts.js';
+export {handleRate} from './rate.js';

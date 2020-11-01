@@ -24,6 +24,7 @@ import {
   handleBomb,
   handleDice,
   handleDarts,
+  handleRate,
 } from '../handlers/index.js';
 bot.use(i18n.middleware());
 /*
@@ -53,6 +54,7 @@ bot.command('neprivet', handleNoHello);
 bot.command('bomb', handleBomb);
 bot.command('dice', handleDice);
 bot.command('darts', handleDarts);
+bot.command('rate', handleRate);
 bot.launch().then(() => {
   console.log(`bot started`);
 });
