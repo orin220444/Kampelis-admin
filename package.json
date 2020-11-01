@@ -22,6 +22,7 @@
   },
   "homepage": "https://gitlab.com/orin220444/adminchatbot#readme",
   "dependencies": {
+    "axios": "^0.21.0",
     "dotenv": "^8.2.0",
     "mongoose": "^5.10.11",
     "openweather-apis": "^4.3.1",
