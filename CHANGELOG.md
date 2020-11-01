@@ -8,7 +8,7 @@
 
 - Added command /bomb
 
-- Add trello link on readme
+- Added trello link on readme
 
 - Added .eslintrc file
 
@@ -58,11 +58,11 @@
 
 - bot now checks is bot a new chat member
 
-- deleted handlers `/pidor` and checker
+- Deleted handlers `/pidor` and checker
 
-- added command `/durka`
+- Added command `/durka`
 
-- bug fixes and little improvements
+- Bug fixes and little improvements
 
 ## v.1.0.1
 
@@ -86,9 +86,9 @@
 
 - Added catch blocks
 
-- added config/ to .gitignore
+- Added config/ to .gitignore
 
-- updated Mongoose to 5.8.9
+- Updated Mongoose to 5.8.9
 
 ## v.0.4.1
 
