@@ -20,7 +20,7 @@ const handleNoHello = require('./noHello');
 const handleBomb = require('./bomb');
 const handleDice = require('./dice');
 const handleDarts = require('./darts');
-const handleWeather = rewuire('./weather')
+const handleWeather = rewuire('./weather');
 module.exports = {
   handleWelcome,
   handleBan,
@@ -43,5 +43,5 @@ module.exports = {
   handleBomb,
   handleDice,
   handleDarts,
-handleWeather
+  handleWeather,
 };
