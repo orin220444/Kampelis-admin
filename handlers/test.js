@@ -1,4 +1,8 @@
-const {version} = require('../package.json');
+import {promisify} from 'util'
+import {readFile} from 'fs'
+const catFile = promisify(readFile)
+const data = await catFile('../package.json')
+const version = data.version 
 export const handleTest = async (ctx) => {
   try {
     const answer = ctx.i18n.t('test', {
